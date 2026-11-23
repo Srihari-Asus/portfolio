@@ -44,19 +44,19 @@ export interface SkillCategory {
 }
 
 export const PERSONAL_INFO = {
-  name: "SRIHARI S.",
+  name: "SRIHARI S",
   tagline: "FULL-STACK DEVELOPER",
   roleSubhead: "Full-Stack Developer · Software Developer · AI Enthusiast",
   heroDescription:
     "Building full-stack applications and AI-powered systems that turn real-world problems into practical solutions.",
   aboutText:
-    "I'm a Computer Science and Engineering student passionate about building impactful digital solutions through full-stack development and AI-driven technologies. I enjoy transforming ideas into practical applications, exploring intelligent systems, and solving real-world problems through software. From developing web applications to experimenting with computer vision and AI-powered solutions, I focus on creating technology that is useful, scalable, and user-friendly.",
+    "I'm a Computer Science and Engineering student passionate about building impactful digital solutions through software development, data analysis, software testing, and AI-driven technologies. I enjoy transforming ideas into practical applications, developing full-stack systems, analyzing data to uncover insights, and testing software to improve functionality and reliability. My interests span application development, intelligent systems, computer vision, data-driven problem-solving, and software quality. I believe in building technology that is not only functional, but useful, reliable, scalable, and thoughtfully designed.",
   secondaryInfo: "JAVA · REACT · PYTHON · AI · SOFTWARE DEVELOPMENT",
   education: {
     degree: "B.E. Computer Science and Engineering",
     institution: "Sri Krishna College of Technology, Coimbatore",
-    duration: "2024 – 2028",
-    focus: "Full-stack architecture, applied artificial intelligence, computer vision, and scalable system engineering.",
+    duration: "2024 — 2028",
+    focus: "Exploring software engineering, full-stack development, intelligent systems, data-driven applications, and scalable computing.",
   },
   contacts: {
     email: "srihari23052007@gmail.com",
