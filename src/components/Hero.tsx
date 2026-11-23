@@ -144,47 +144,41 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Column: Seamless Cinematic Portrait Visual with Multi-Layered Glow */}
-        <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end mt-4 lg:mt-0">
-          <div className="relative w-full max-w-lg lg:max-w-none flex items-center justify-center animate-in fade-in slide-in-from-bottom-4 duration-1000 ease-out fill-mode-forwards">
+        {/* Right Column: Clean, Premium Rounded Vertical Portrait Frame */}
+        <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end mt-8 lg:mt-0">
+          <div className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px] aspect-[4/5] group">
             
-            {/* Layer 1: Core Intense Silhouette Rim Glow */}
+            {/* Ambient Subtle Crimson Glow Behind the Portrait Frame */}
             <div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[380px] lg:w-[440px] h-[380px] sm:h-[460px] lg:h-[520px] rounded-full bg-gradient-to-t from-crimson/35 via-crimson-glow/28 to-transparent blur-[50px] pointer-events-none -z-10"
+              className="absolute -inset-4 sm:-inset-6 rounded-[36px] bg-gradient-to-tr from-crimson/25 via-crimson-dark/20 to-transparent blur-[45px] pointer-events-none -z-10 group-hover:bg-crimson/35 group-hover:blur-[55px] transition-all duration-700 ease-out"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute inset-x-8 -bottom-8 h-24 bg-crimson/25 blur-3xl pointer-events-none -z-10 group-hover:bg-crimson/40 transition-all duration-700 ease-out"
               aria-hidden="true"
             />
 
-            {/* Layer 2: Mid-Range Diffuse Atmospheric Bloom */}
-            <div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[460px] sm:w-[540px] lg:w-[620px] h-[460px] sm:h-[540px] lg:h-[620px] rounded-full bg-gradient-to-tr from-crimson-dark/35 via-crimson/20 to-transparent blur-[95px] pointer-events-none -z-10"
-              aria-hidden="true"
-            />
-
-            {/* Layer 3: Deep Ethereal Outer Halo Fading to Black */}
-            <div
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] sm:w-[700px] lg:w-[780px] h-[600px] sm:h-[700px] lg:h-[780px] rounded-full bg-crimson-dark/15 blur-[160px] pointer-events-none -z-10"
-              aria-hidden="true"
-            />
-
-            {/* Seamless Cinematic Portrait Container */}
-            <div className="relative w-full flex items-center justify-center">
+            {/* Premium Rounded Portrait Frame Container */}
+            <div className="relative w-full h-full rounded-[28px] overflow-hidden border border-crimson/30 hover:border-crimson/60 bg-gradient-to-b from-void-900 via-void-950 to-void-950 shadow-[0_15px_35px_rgba(0,0,0,0.85)] group-hover:shadow-[0_20px_50px_rgba(229,9,20,0.25)] transition-all duration-500 ease-out flex items-center justify-center">
+              
+              {/* Portrait Image */}
               <img
                 src="/assets/profile/portrait.png"
                 alt="Srihari S. — Full-Stack Developer & AI Enthusiast"
-                className="relative z-10 w-auto h-auto max-h-[440px] sm:max-h-[540px] md:max-h-[580px] lg:max-h-[640px] xl:max-h-[680px] max-w-full object-contain object-bottom drop-shadow-[0_15px_35px_rgba(229,9,20,0.25)] select-none pointer-events-none"
-                style={{
-                  maskImage:
-                    'linear-gradient(to bottom, black 0%, black 75%, rgba(0, 0, 0, 0.4) 90%, transparent 100%)',
-                  WebkitMaskImage:
-                    'linear-gradient(to bottom, black 0%, black 75%, rgba(0, 0, 0, 0.4) 90%, transparent 100%)',
-                }}
+                className="w-full h-full object-cover object-top sm:object-center select-none pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 loading="eager"
                 decoding="async"
               />
 
-              {/* Bottom Edge Cinematic Gradient Blend into Hero Background */}
+              {/* Gentle Bottom Gradient Blend into Dark Void */}
               <div
-                className="absolute inset-x-0 bottom-0 h-24 sm:h-32 bg-gradient-to-t from-void-950 via-void-950/70 to-transparent pointer-events-none z-20"
+                className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-void-950 via-void-950/60 to-transparent pointer-events-none z-10"
+                aria-hidden="true"
+              />
+
+              {/* Ultra-subtle Inner Border Highlight */}
+              <div
+                className="absolute inset-0 rounded-[28px] border border-white/5 pointer-events-none z-20"
                 aria-hidden="true"
               />
             </div>
