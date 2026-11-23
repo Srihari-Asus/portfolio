@@ -16,6 +16,7 @@ export interface Achievement {
   description: string;
   badge: string;
   tag: string;
+  isPrimary?: boolean;
 }
 
 export interface Skill {
@@ -176,19 +177,31 @@ export const EXPERIENCE_DATA: Experience[] = [
 export const ACHIEVEMENTS_DATA: Achievement[] = [
   {
     number: "01",
-    title: "First Place — Dhruva '26 Hackathon",
+    title: "First Place – Dhruva '26 Hackathon",
     organization: "Karpagam College of Engineering",
-    description: "Won 1st place among 70+ participating teams.",
+    description:
+      "Secured 1st place among 100+ participating teams for presenting AgroPlay, an AI-powered smart agriculture solution.",
     badge: "1ST PLACE WINNER",
-    tag: "Competitive Hackathon",
+    tag: "COMPETITIVE HACKATHON",
+    isPrimary: true,
   },
   {
     number: "02",
-    title: "Smart India Hackathon",
-    organization: "Ministry of Education & AICTE",
-    description: "SIH Top 500 achievement.",
-    badge: "TOP 500 NATIONWIDE",
-    tag: "National Innovation Initiative",
+    title: "Smart India Hackathon 2025",
+    organization: "Smart India Hackathon",
+    description:
+      "Recognized as a finalist in Smart India Hackathon 2025 for innovation and problem-solving through technology.",
+    badge: "SIH '25 FINALIST",
+    tag: "NATIONAL INNOVATION INITIATIVE",
+  },
+  {
+    number: "03",
+    title: "CSE Department Magazine Editor",
+    organization: "Computer Science & Engineering Department",
+    description:
+      "Contributed as a department magazine editor, working on technical content, editorial organization, and presenting technology-focused ideas through the CSE department magazine.",
+    badge: "EDITORIAL LEADERSHIP",
+    tag: "TECHNICAL EDITORIAL",
   },
 ];
 
