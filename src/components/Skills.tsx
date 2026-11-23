@@ -8,7 +8,6 @@ import {
   BarChart3,
   Terminal,
   ShieldCheck,
-  Sparkles,
 } from 'lucide-react';
 import { SKILL_CATEGORIES, SkillCategory } from '../data/portfolio';
 
@@ -87,14 +86,16 @@ export default function Skills() {
           </p>
         </div>
 
-        {/* Thin Divider Beneath Heading */}
-        <div className="w-full h-[1px] bg-void-800/80 mb-10" />
+        {/* Blueprint Section Divider with Crimson Leading Accent */}
+        <div className="relative w-full h-[1px] bg-void-800/80 mb-10 overflow-hidden">
+          <div className="absolute left-0 top-0 w-24 h-[1px] bg-gradient-to-r from-crimson via-crimson/60 to-transparent" />
+        </div>
 
         {/* ================================================================ */}
         {/* 2. CATEGORY FILTER NAVIGATION                                    */}
         {/* ================================================================ */}
         <div className="relative mb-14">
-          <div className="flex items-center gap-2.5 overflow-x-auto pb-4 scrollbar-none -mx-6 px-6 sm:-mx-8 sm:px-8 lg:mx-0 lg:px-0">
+          <div className="flex items-center gap-2 overflow-x-auto pb-4 scrollbar-none -mx-6 px-6 sm:-mx-8 sm:px-8 lg:mx-0 lg:px-0">
             {FILTER_ITEMS.map((filter) => {
               const isSelected = activeFilter === filter;
               return (
@@ -102,10 +103,10 @@ export default function Skills() {
                   key={filter}
                   type="button"
                   onClick={() => setActiveFilter(filter)}
-                  className={`font-mono text-xs px-4 py-2.5 rounded-lg uppercase tracking-wider whitespace-nowrap transition-all duration-300 border flex-shrink-0 cursor-pointer ${
+                  className={`font-mono text-xs px-4 py-2 rounded-md uppercase tracking-wider whitespace-nowrap transition-all duration-300 border flex-shrink-0 cursor-pointer ${
                     isSelected
-                      ? 'bg-crimson border-crimson text-white shadow-[0_0_20px_rgba(229,9,20,0.35)] font-semibold'
-                      : 'bg-void-900/90 border-void-800 text-silver-muted hover:text-white hover:border-crimson/50 hover:bg-void-900 hover:shadow-[0_0_12px_rgba(229,9,20,0.15)]'
+                      ? 'bg-crimson border-crimson text-white shadow-[0_0_18px_rgba(229,9,20,0.35)] font-semibold'
+                      : 'bg-void-950/90 border-void-800/80 text-silver-muted hover:text-white hover:border-crimson/40 hover:bg-void-900 hover:shadow-[0_0_12px_rgba(229,9,20,0.12)]'
                   }`}
                 >
                   {filter}
@@ -116,7 +117,7 @@ export default function Skills() {
         </div>
 
         {/* ================================================================ */}
-        {/* 3. SKILL GROUP STRUCTURE & 4. TECHNOLOGY CARDS                  */}
+        {/* 3. SKILL GROUP STRUCTURE & TECHNICAL SKELETON CARDS             */}
         {/* ================================================================ */}
         <div
           key={activeFilter}
@@ -132,60 +133,73 @@ export default function Skills() {
             return (
               <div
                 key={catGroup.id}
-                className="space-y-6 rounded-2xl bg-void-950/40 p-1 sm:p-0"
+                className="space-y-4 rounded-xl bg-void-950/20"
               >
                 {/* Category Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-void-800/80">
-                  <div className="flex items-start sm:items-center gap-3.5">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-1">
+                  <div className="flex items-start sm:items-center gap-3">
                     {/* Small Dark Square with Category Icon */}
-                    <div className="p-2.5 rounded-lg bg-void-900 border border-void-800 text-crimson flex items-center justify-center flex-shrink-0 shadow-sm">
-                      <Icon className="w-5 h-5" />
+                    <div className="p-2 rounded-md bg-void-950 border border-void-800/90 text-crimson flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <Icon className="w-4 h-4" />
                     </div>
 
                     <div>
                       {/* Category Title */}
-                      <h3 className="font-display text-lg sm:text-xl font-bold text-white tracking-wide uppercase">
+                      <h3 className="font-display text-base sm:text-lg font-bold text-white tracking-wider uppercase">
                         {catGroup.category}
                       </h3>
 
                       {/* Short Category Description */}
-                      <p className="font-mono text-xs text-silver-muted mt-0.5">
+                      <p className="font-mono text-xs text-silver-muted mt-0.5 font-light">
                         {catGroup.description}
                       </p>
                     </div>
                   </div>
 
-                  {/* Number of Technologies Badge */}
-                  <span className="font-mono text-xs text-crimson font-bold tracking-widest uppercase whitespace-nowrap bg-void-900/90 border border-void-800 px-3 py-1.5 rounded-md self-start sm:self-auto shadow-inner">
-                    {techCountFormatted} TECHNOLOGIES
-                  </span>
+                  {/* Number of Technologies Badge (Blueprint style) */}
+                  <div className="flex items-center gap-2 font-mono text-[11px] text-silver-muted bg-void-950/90 border border-void-800/90 px-3 py-1 rounded-sm self-start sm:self-auto shadow-inner">
+                    <span className="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse" />
+                    <span className="text-crimson font-bold tracking-widest">{techCountFormatted}</span>
+                    <span className="text-silver-muted tracking-wider">TECHNOLOGIES</span>
+                  </div>
                 </div>
 
-                {/* Technology Cards Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 pt-1">
-                  {catGroup.skills.map((skill) => (
+                {/* Blueprint Category Separator with Crimson Leading Edge */}
+                <div className="relative w-full h-[1px] bg-void-800/70 mb-5 overflow-hidden">
+                  <div className="absolute left-0 top-0 w-16 h-[1px] bg-gradient-to-r from-crimson/80 to-transparent" />
+                </div>
+
+                {/* Technology Cards Grid (Engineered technical skeleton) */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5">
+                  {catGroup.skills.map((skill, idx) => (
                     <div
                       key={skill.name}
-                      className="group relative p-5 rounded-xl bg-void-900/70 border border-void-800/90 hover:border-crimson/50 hover:bg-void-900 transition-all duration-300 hover:-translate-y-1 shadow-[0_4px_16px_rgba(0,0,0,0.4)] hover:shadow-[0_10px_30px_rgba(229,9,20,0.18)] flex flex-col justify-between overflow-hidden"
+                      className="group relative p-4 sm:p-4.5 rounded-lg bg-void-950/80 border border-void-800/70 hover:border-crimson/40 hover:bg-void-900/80 transition-all duration-300 hover:-translate-y-1 shadow-[0_2px_10px_rgba(0,0,0,0.5)] hover:shadow-[0_4px_20px_rgba(229,9,20,0.12)] flex flex-col justify-between overflow-hidden"
                     >
-                      {/* Top Row: Technology Name & Tech Glyph */}
+                      {/* Micro HUD Corner Notch (Top-Left) */}
+                      <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-void-700/60 group-hover:border-crimson/80 transition-colors duration-300 rounded-tl-sm pointer-events-none" />
+
+                      {/* Top Row: Technology Name & Tech Index Marker */}
                       <div>
-                        <div className="flex items-center justify-between gap-2 mb-2">
-                          <h4 className="font-display text-base sm:text-lg font-bold text-white tracking-wide group-hover:text-crimson-accent transition-colors">
+                        <div className="flex items-center justify-between gap-2 mb-1.5">
+                          <h4 className="font-display text-sm sm:text-base font-bold text-white tracking-wide group-hover:text-crimson-accent transition-colors">
                             {skill.name}
                           </h4>
-                          <Sparkles className="w-3.5 h-3.5 text-void-700 group-hover:text-crimson transition-colors flex-shrink-0" />
+                          <div className="flex items-center gap-1 font-mono text-[10px] text-void-600 group-hover:text-crimson/80 transition-colors select-none">
+                            <span className="w-1 h-1 rounded-full bg-void-700 group-hover:bg-crimson transition-colors" />
+                            <span>{idx < 9 ? `0${idx + 1}` : idx + 1}</span>
+                          </div>
                         </div>
 
                         {/* Short Description */}
-                        <p className="font-sans text-xs text-silver-muted leading-relaxed line-clamp-2">
+                        <p className="font-sans text-xs text-silver-muted leading-relaxed line-clamp-2 font-light">
                           {skill.description}
                         </p>
                       </div>
 
-                      {/* Subtle Bottom Accent Highlight on Hover */}
+                      {/* Subtle bottom edge structural hairline */}
                       <div
-                        className="absolute bottom-0 left-4 right-4 h-[1.5px] bg-transparent group-hover:bg-crimson/80 transition-all duration-300 rounded-full"
+                        className="absolute bottom-0 left-3 right-3 h-[1px] bg-transparent group-hover:bg-crimson/40 transition-colors duration-300 pointer-events-none"
                         aria-hidden="true"
                       />
                     </div>
