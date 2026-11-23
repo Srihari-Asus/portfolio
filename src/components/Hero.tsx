@@ -1,6 +1,5 @@
-import { ArrowDown, MessageSquare, Terminal, Sparkles } from 'lucide-react';
+import { ArrowDown, MessageSquare, Terminal } from 'lucide-react';
 import { PERSONAL_INFO } from '../data/portfolio';
-import HeroScene from './three/HeroScene';
 
 export default function Hero() {
   const scrollToProjects = () => {
@@ -28,14 +27,14 @@ export default function Hero() {
           {/* Small Introduction */}
           <div className="inline-flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-void-900 border border-void-700/80 w-fit mb-6 shadow-sm">
             <span className="w-2 h-2 rounded-full bg-crimson animate-pulse" />
-            <span className="font-mono text-xs uppercase tracking-[0.25em] text-silver-muted font-medium">
+            <span className="font-mono text-xs uppercase tracking-[0.50em] text-silver-muted font-medium">
               HELLO, I'M
             </span>
           </div>
 
           {/* Name Dominating Composition */}
           <h1 className="font-display font-black tracking-tight text-white leading-[0.95] mb-4 text-[clamp(2.25rem,6.8vw,3.75rem)] sm:text-[clamp(3rem,6.5vw,4.5rem)] lg:text-[clamp(3.6rem,4.3vw,5.25rem)] xl:text-[5.25rem] whitespace-nowrap">
-            SRIHARI <span className="text-crimson text-glow-crimson">S.</span>
+            SRIHARI <span className="text-crimson text-glow-crimson">S</span>
           </h1>
 
           {/* Main Title */}
@@ -81,39 +80,43 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Right Column: 3D Scene & Portrait Visual */}
-        <div className="lg:col-span-5 relative flex items-center justify-center">
-          {/* Outer glowing containment frame */}
-          <div className="relative w-full max-w-md aspect-[4/5] rounded-xl overflow-hidden border border-void-700/80 bg-gradient-to-b from-void-900/90 via-void-950 to-void-950 shadow-[0_20px_50px_rgba(0,0,0,0.7)] group">
+        {/* Right Column: Seamless Cinematic Portrait Visual */}
+        <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end mt-4 lg:mt-0">
+          <div className="relative w-full max-w-lg lg:max-w-none flex items-center justify-center animate-in fade-in slide-in-from-bottom-4 duration-1000 ease-out fill-mode-forwards">
             
-            {/* Interactive 3D Canvas in Background/Midground */}
-            <div className="absolute inset-0 z-10 flex items-center justify-center opacity-85 group-hover:opacity-100 transition-opacity duration-500">
-              <HeroScene />
-            </div>
-
-            {/* Silhouette / Portrait Image Placeholder Layer
-                To replace with your actual photograph:
-                Swap src to your photo (e.g., "/assets/profile/portrait.png") 
-            */}
-            <img
-              src="/assets/profile/portrait-silhouette.svg"
-              alt="Srihari S. Portrait Silhouette"
-              className="relative z-20 w-full h-full object-cover object-center mix-blend-screen opacity-90 transition-transform duration-700 ease-out group-hover:scale-102"
-              loading="eager"
+            {/* Cinematic Crimson Atmospheric Ambient Glow Behind Portrait */}
+            <div
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[420px] lg:w-[480px] h-[300px] sm:h-[420px] lg:h-[480px] rounded-full bg-crimson/20 blur-[100px] pointer-events-none -z-10"
+              aria-hidden="true"
+            />
+            <div
+              className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[220px] sm:w-[320px] lg:w-[360px] h-[220px] sm:h-[320px] lg:h-[360px] rounded-full bg-crimson-glow/15 blur-[70px] pointer-events-none -z-10"
+              aria-hidden="true"
             />
 
-            {/* Corner Tech Accents */}
-            <div className="absolute top-3 left-3 z-30 font-mono text-[10px] tracking-widest text-silver-muted bg-void-950/80 px-2 py-0.5 rounded border border-void-800 flex items-center gap-1.5">
-              <Sparkles className="w-2.5 h-2.5 text-crimson" />
-              <span>3D INTERACTIVE CORE</span>
+            {/* Seamless Cinematic Portrait Container */}
+            <div className="relative w-full flex items-center justify-center">
+              <img
+                src="/assets/profile/portrait.png"
+                alt="Srihari S. — Full-Stack Developer & AI Enthusiast"
+                className="relative z-10 w-auto h-auto max-h-[440px] sm:max-h-[540px] md:max-h-[580px] lg:max-h-[640px] xl:max-h-[680px] max-w-full object-contain object-bottom drop-shadow-[0_15px_35px_rgba(229,9,20,0.25)] select-none pointer-events-none"
+                style={{
+                  maskImage:
+                    'linear-gradient(to bottom, black 0%, black 75%, rgba(0, 0, 0, 0.4) 90%, transparent 100%)',
+                  WebkitMaskImage:
+                    'linear-gradient(to bottom, black 0%, black 75%, rgba(0, 0, 0, 0.4) 90%, transparent 100%)',
+                }}
+                loading="eager"
+                decoding="async"
+              />
+
+              {/* Bottom Edge Cinematic Gradient Blend into Hero Background */}
+              <div
+                className="absolute inset-x-0 bottom-0 h-24 sm:h-32 bg-gradient-to-t from-void-950 via-void-950/70 to-transparent pointer-events-none z-20"
+                aria-hidden="true"
+              />
             </div>
 
-            <div className="absolute bottom-3 right-3 z-30 font-mono text-[10px] tracking-wider text-silver-muted bg-void-950/80 px-2 py-0.5 rounded border border-void-800">
-              ROTATE WITH CURSOR
-            </div>
-
-            {/* Subtle red bottom ambient rim light */}
-            <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-3/4 h-20 bg-crimson/30 blur-2xl pointer-events-none z-20" />
           </div>
         </div>
 
