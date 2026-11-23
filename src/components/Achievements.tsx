@@ -15,7 +15,7 @@ export default function Achievements() {
   };
 
   return (
-    <section id="achievements" className="py-24 sm:py-32 lg:py-36 relative z-10 reveal-on-scroll overflow-hidden">
+    <section id="achievements" className="py-20 sm:py-28 lg:py-36 relative z-10 reveal-on-scroll overflow-hidden">
       {/* Background Subtle Ambient Lighting */}
       <div
         className="absolute top-1/4 -right-32 w-[550px] h-[550px] bg-crimson-dark/12 rounded-full blur-[180px] pointer-events-none -z-10"
@@ -26,7 +26,7 @@ export default function Achievements() {
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ================================================================ */}
         {/* SECTION HEADER                                                  */}
@@ -41,7 +41,7 @@ export default function Achievements() {
             </div>
 
             {/* Large Heading */}
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.05]">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05]">
               AWARDS &amp; <br className="sm:hidden" />
               <span className="text-crimson text-glow-crimson">ACHIEVEMENTS.</span>
             </h2>
@@ -54,21 +54,21 @@ export default function Achievements() {
         </div>
 
         {/* Blueprint Section Divider with Crimson Leading Accent */}
-        <div className="relative w-full h-[1px] bg-void-800/80 mb-14 lg:mb-16 overflow-hidden">
+        <div className="relative w-full h-[1px] bg-void-800/80 mb-12 lg:mb-16 overflow-hidden">
           <div className="absolute left-0 top-0 w-24 h-[1px] bg-gradient-to-r from-crimson via-crimson/60 to-transparent" />
         </div>
 
         {/* ================================================================ */}
         {/* ACHIEVEMENTS GRID (3 Cards: Dhruva '26 Highlighted + SIH + Editor) */}
         {/* ================================================================ */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
           {ACHIEVEMENTS_DATA.map((item, idx) => {
             const isPrimary = item.isPrimary;
 
             return (
               <div
                 key={idx}
-                className={`relative p-7 sm:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between overflow-hidden group ${
+                className={`relative p-5 sm:p-7 lg:p-8 rounded-2xl transition-all duration-300 hover:-translate-y-1 flex flex-col justify-between overflow-hidden group ${
                   isPrimary
                     ? 'bg-gradient-to-br from-void-900 via-void-950 to-void-950 border border-crimson/50 hover:border-crimson shadow-[0_12px_35px_rgba(229,9,20,0.15)] hover:shadow-[0_18px_45px_rgba(229,9,20,0.25)]'
                     : 'bg-gradient-to-br from-void-950/90 via-void-950 to-void-950 border border-void-800 hover:border-crimson/60 shadow-[0_10px_30px_rgba(0,0,0,0.6)] hover:shadow-[0_15px_35px_rgba(229,9,20,0.12)]'

@@ -3,7 +3,7 @@ import { PROJECTS } from '../data/projects';
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-24 sm:py-32 lg:py-36 relative z-10 reveal-on-scroll overflow-hidden">
+    <section id="projects" className="py-20 sm:py-28 lg:py-36 relative z-10 reveal-on-scroll overflow-hidden">
       {/* Background Subtle Ambient Lighting */}
       <div
         className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-crimson-dark/12 rounded-full blur-[180px] pointer-events-none -z-10"
@@ -14,7 +14,7 @@ export default function Projects() {
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ================================================================ */}
         {/* SECTION HEADER                                                  */}
@@ -29,7 +29,7 @@ export default function Projects() {
             </div>
 
             {/* Large Heading */}
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.05]">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05]">
               FEATURED <span className="text-crimson text-glow-crimson">PROJECTS.</span>
             </h2>
           </div>
@@ -41,14 +41,14 @@ export default function Projects() {
         </div>
 
         {/* Blueprint Section Divider with Crimson Leading Accent */}
-        <div className="relative w-full h-[1px] bg-void-800/80 mb-20 lg:mb-28 overflow-hidden">
+        <div className="relative w-full h-[1px] bg-void-800/80 mb-14 lg:mb-24 overflow-hidden">
           <div className="absolute left-0 top-0 w-24 h-[1px] bg-gradient-to-r from-crimson via-crimson/60 to-transparent" />
         </div>
 
         {/* ================================================================ */}
         {/* ALL 6 PROJECTS: INDIVIDUAL EDITORIAL SHOWCASE ENTRIES           */}
         {/* ================================================================ */}
-        <div className="space-y-28 lg:space-y-36">
+        <div className="space-y-20 sm:space-y-28 lg:space-y-36">
           {PROJECTS.map((project, idx) => {
             const isReversed = idx % 2 === 1;
 
@@ -176,12 +176,12 @@ export default function Projects() {
                   </div>
 
                   {/* Action Buttons: GitHub always, Live Demo only when available */}
-                  <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-void-800/80">
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-4 border-t border-void-800/80">
                     <a
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-sm bg-void-900/90 hover:bg-crimson border border-void-700 hover:border-crimson text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(229,9,20,0.4)]"
+                      className="group inline-flex items-center justify-center gap-2 px-5 py-3 rounded-sm bg-void-900/90 hover:bg-crimson border border-void-700 hover:border-crimson text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(229,9,20,0.4)] min-h-[44px]"
                     >
                       <Github className="w-4 h-4" />
                       <span>VIEW GITHUB</span>
@@ -193,7 +193,7 @@ export default function Projects() {
                         href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-sm bg-crimson hover:bg-crimson-glow border border-crimson/60 hover:border-crimson-glow/60 text-white font-mono text-xs font-semibold tracking-wider transition-all duration-300 shadow-[0_4px_16px_rgba(229,9,20,0.25)] hover:shadow-[0_0_25px_rgba(229,9,20,0.6)]"
+                        className="group inline-flex items-center justify-center gap-2 px-5 py-3 rounded-sm bg-crimson hover:bg-crimson-glow border border-crimson/60 hover:border-crimson-glow/60 text-white font-mono text-xs font-semibold tracking-wider transition-all duration-300 shadow-[0_4px_16px_rgba(229,9,20,0.25)] hover:shadow-[0_0_25px_rgba(229,9,20,0.6)] min-h-[44px]"
                       >
                         <ExternalLink className="w-4 h-4" />
                         <span>LIVE DEMO</span>

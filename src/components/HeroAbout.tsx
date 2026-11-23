@@ -307,9 +307,9 @@ export default function HeroAbout() {
       <section
         id="hero"
         ref={heroRef}
-        className="relative min-h-screen w-full flex items-center justify-center pt-24 pb-16 px-6 sm:px-8 lg:px-12 overflow-visible"
+        className="relative min-h-screen w-full flex items-center justify-center pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 overflow-visible"
       >
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center z-10">
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center z-10">
           
           {/* Left Column: Text & CTA */}
           <div
@@ -317,37 +317,37 @@ export default function HeroAbout() {
             className="lg:col-span-7 flex flex-col justify-center text-left"
           >
             {/* Small Introduction */}
-            <div className="inline-flex items-center gap-3 px-3.5 py-1.5 rounded-full bg-void-900 border border-void-700/80 w-fit mb-6 shadow-sm">
+            <div className="inline-flex items-center gap-2.5 sm:gap-3 px-3 py-1.5 rounded-full bg-void-900 border border-void-700/80 w-fit mb-5 sm:mb-6 shadow-sm">
               <span className="w-2 h-2 rounded-full bg-crimson animate-pulse" />
-              <span className="font-mono text-xs uppercase tracking-[0.50em] text-silver-muted font-medium">
+              <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.40em] sm:tracking-[0.50em] text-silver-muted font-medium">
                 HELLO, I'M
               </span>
             </div>
 
-            {/* Name Dominating Composition */}
-            <h1 className="font-display font-black tracking-tight text-white leading-[0.95] mb-4 text-[clamp(2.25rem,6.8vw,3.75rem)] sm:text-[clamp(3rem,6.5vw,4.5rem)] lg:text-[clamp(3.6rem,4.3vw,5.25rem)] xl:text-[5.25rem] whitespace-nowrap">
+            {/* Name Dominating Composition - Fully Responsive clamp font */}
+            <h1 className="font-display font-black tracking-tight text-white leading-[0.95] mb-3 sm:mb-4 text-[clamp(2.1rem,9vw,3.6rem)] sm:text-[clamp(3rem,6.8vw,4.5rem)] lg:text-[clamp(3.6rem,4.3vw,5.25rem)] xl:text-[5.25rem]">
               SRIHARI <span className="text-crimson text-glow-crimson">S</span>
             </h1>
 
             {/* Main Title */}
-            <div className="flex items-center gap-3 mb-6">
-              <div className="h-[2px] w-8 bg-crimson" />
-              <h2 className="font-mono text-lg sm:text-2xl font-bold tracking-wider text-crimson-accent uppercase">
+            <div className="flex items-center gap-3 mb-5 sm:mb-6">
+              <div className="h-[2px] w-6 sm:w-8 bg-crimson flex-shrink-0" />
+              <h2 className="font-mono text-base sm:text-xl lg:text-2xl font-bold tracking-wider text-crimson-accent uppercase">
                 {PERSONAL_INFO.tagline}
               </h2>
             </div>
 
             {/* Supporting Text */}
-            <p className="font-sans text-base sm:text-xl text-silver-light/90 max-w-2xl leading-relaxed mb-8 font-light">
+            <p className="font-sans text-sm sm:text-lg lg:text-xl text-silver-light/90 max-w-2xl leading-relaxed mb-6 sm:mb-8 font-light">
               {PERSONAL_INFO.heroDescription}
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 sm:gap-5 mb-10">
+            {/* Action Buttons - Stacked on tiny screens, inline on sm+ */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto">
               <button
                 type="button"
                 onClick={scrollToProjects}
-                className="group relative inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-sm bg-crimson hover:bg-crimson-glow border border-crimson/60 hover:border-crimson-glow/60 text-white font-mono text-xs sm:text-sm font-semibold tracking-wider transition-all duration-300 ease-out shadow-[0_4px_16px_rgba(229,9,20,0.25)] hover:shadow-[0_0_35px_rgba(229,9,20,0.6),0_0_15px_rgba(255,42,56,0.4)] active:scale-[0.98] active:shadow-[0_0_20px_rgba(229,9,20,0.4)]"
+                className="group relative inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-sm bg-crimson hover:bg-crimson-glow border border-crimson/60 hover:border-crimson-glow/60 text-white font-mono text-xs sm:text-sm font-semibold tracking-wider transition-all duration-300 ease-out shadow-[0_4px_16px_rgba(229,9,20,0.25)] hover:shadow-[0_0_35px_rgba(229,9,20,0.6),0_0_15px_rgba(255,42,56,0.4)] active:scale-[0.98] min-h-[44px]"
               >
                 <span>EXPLORE PROJECTS</span>
                 <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-200" />
@@ -356,7 +356,7 @@ export default function HeroAbout() {
               <button
                 type="button"
                 onClick={scrollToContact}
-                className="inline-flex items-center justify-center gap-3 px-7 py-3.5 rounded-sm bg-void-900/80 hover:bg-void-800 border border-void-600 hover:border-silver-muted text-silver-light hover:text-white font-mono text-xs sm:text-sm tracking-wider transition-all duration-300 active:scale-95"
+                className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-sm bg-void-900/80 hover:bg-void-800 border border-void-600 hover:border-silver-muted text-silver-light hover:text-white font-mono text-xs sm:text-sm tracking-wider transition-all duration-300 active:scale-95 min-h-[44px]"
               >
                 <MessageSquare className="w-4 h-4 text-crimson" />
                 <span>LET'S CONNECT</span>
@@ -364,9 +364,9 @@ export default function HeroAbout() {
             </div>
 
             {/* Secondary Information Bar */}
-            <div className="pt-6 border-t border-void-800/80 flex items-center gap-3">
+            <div className="pt-4 sm:pt-6 border-t border-void-800/80 flex items-center gap-2.5 sm:gap-3">
               <Terminal className="w-4 h-4 text-crimson flex-shrink-0" />
-              <p className="font-mono text-xs tracking-wider text-silver-muted uppercase leading-snug">
+              <p className="font-mono text-[11px] sm:text-xs tracking-wider text-silver-muted uppercase leading-snug">
                 {PERSONAL_INFO.secondaryInfo}
               </p>
             </div>
@@ -390,35 +390,35 @@ export default function HeroAbout() {
       {/* Mobile (<lg): Clean natural flow between Hero & About           */}
       {/* ================================================================ */}
       <div className="relative lg:absolute lg:inset-0 pointer-events-none z-20 overflow-visible">
-        <div className="lg:sticky lg:top-28 w-full max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 pointer-events-none">
+        <div className="lg:sticky lg:top-28 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
             
             {/* The Animated Portrait Frame */}
             <div
               ref={portraitWrapperRef}
-              className="lg:col-span-5 pointer-events-auto flex flex-col items-center mx-auto lg:mx-0 w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px] my-8 lg:my-0"
+              className="lg:col-span-5 pointer-events-auto flex flex-col items-center mx-auto lg:mx-0 w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[360px] lg:max-w-[420px] my-6 sm:my-8 lg:my-0"
             >
               <div className="relative w-full aspect-[4/5] group">
 
                 {/* Ambient Subtle Crimson Glow Behind the Portrait Frame */}
                 <div
                   ref={glowRef}
-                  className="absolute -inset-4 sm:-inset-6 rounded-[36px] bg-gradient-to-tr from-crimson/25 via-crimson-dark/20 to-transparent blur-[45px] sm:blur-[50px] pointer-events-none -z-10 group-hover:bg-crimson/35 group-hover:blur-[55px] transition-all duration-700 ease-out"
+                  className="absolute -inset-4 sm:-inset-6 rounded-[36px] bg-gradient-to-tr from-crimson/25 via-crimson-dark/20 to-transparent blur-[40px] sm:blur-[50px] pointer-events-none -z-10 group-hover:bg-crimson/35 group-hover:blur-[55px] transition-all duration-700 ease-out"
                   aria-hidden="true"
                 />
                 <div
-                  className="absolute inset-x-8 -bottom-8 h-24 bg-crimson/25 blur-3xl pointer-events-none -z-10 group-hover:bg-crimson/40 transition-all duration-700 ease-out"
+                  className="absolute inset-x-8 -bottom-8 h-20 sm:h-24 bg-crimson/25 blur-3xl pointer-events-none -z-10 group-hover:bg-crimson/40 transition-all duration-700 ease-out"
                   aria-hidden="true"
                 />
 
                 {/* Minimal Technical HUD Label (Top) - Fades in during About transition */}
-                <div className="about-hud-element absolute -top-3 left-6 z-30 px-3 py-1 rounded bg-void-950/90 border border-void-800 text-[10px] font-mono tracking-widest text-silver-muted flex items-center gap-1.5 shadow-sm transition-opacity duration-300">
+                <div className="about-hud-element absolute -top-3 left-4 sm:left-6 z-30 px-2.5 sm:px-3 py-1 rounded bg-void-950/90 border border-void-800 text-[9px] sm:text-[10px] font-mono tracking-widest text-silver-muted flex items-center gap-1.5 shadow-sm transition-opacity duration-300">
                   <span className="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse" />
                   <span>SYS // IDENTITY_FRAME</span>
                 </div>
 
                 {/* Premium Rounded Portrait Frame Container */}
-                <div className="relative w-full h-full rounded-[28px] overflow-hidden border border-crimson/30 hover:border-crimson/60 bg-gradient-to-b from-void-900 via-void-950 to-void-950 shadow-[0_15px_35px_rgba(0,0,0,0.85)] group-hover:shadow-[0_25px_60px_rgba(229,9,20,0.25)] transition-all duration-500 ease-out flex items-center justify-center">
+                <div className="relative w-full h-full rounded-[24px] sm:rounded-[28px] overflow-hidden border border-crimson/30 hover:border-crimson/60 bg-gradient-to-b from-void-900 via-void-950 to-void-950 shadow-[0_15px_35px_rgba(0,0,0,0.85)] group-hover:shadow-[0_25px_60px_rgba(229,9,20,0.25)] transition-all duration-500 ease-out flex items-center justify-center">
 
                   {/* EXACTLY ONE PORTRAIT IMAGE INSTANCE IN THE DOM */}
                   <img
@@ -431,18 +431,18 @@ export default function HeroAbout() {
 
                   {/* Gentle Bottom Gradient Fade into Dark Void */}
                   <div
-                    className="absolute inset-x-0 bottom-0 h-28 sm:h-32 bg-gradient-to-t from-void-950 via-void-950/70 to-transparent pointer-events-none z-10"
+                    className="absolute inset-x-0 bottom-0 h-24 sm:h-32 bg-gradient-to-t from-void-950 via-void-950/70 to-transparent pointer-events-none z-10"
                     aria-hidden="true"
                   />
 
                   {/* Ultra-subtle Inner Border Highlight */}
                   <div
-                    className="absolute inset-0 rounded-[28px] border border-white/5 pointer-events-none z-20"
+                    className="absolute inset-0 rounded-[24px] sm:rounded-[28px] border border-white/5 pointer-events-none z-20"
                     aria-hidden="true"
                   />
 
                   {/* Minimal Technical HUD Badge (Bottom Left) - Fades in during About transition */}
-                  <div className="about-hud-element absolute bottom-4 left-4 z-20 font-mono text-[10px] tracking-wider text-silver-light/80 bg-void-950/80 backdrop-blur-md px-2.5 py-1 rounded border border-void-800/80 transition-opacity duration-300">
+                  <div className="about-hud-element absolute bottom-3 sm:bottom-4 left-3 sm:left-4 z-20 font-mono text-[9px] sm:text-[10px] tracking-wider text-silver-light/80 bg-void-950/80 backdrop-blur-md px-2 sm:px-2.5 py-1 rounded border border-void-800/80 transition-opacity duration-300">
                     SRIHARI S. // 2024–2028
                   </div>
                 </div>
@@ -470,9 +470,9 @@ export default function HeroAbout() {
       <section
         id="about"
         ref={aboutRef}
-        className="py-24 sm:py-32 lg:py-36 relative z-10 overflow-visible"
+        className="py-20 sm:py-28 lg:py-36 relative z-10 overflow-visible"
       >
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Main Two-Column Scroll-Driven Layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative">
@@ -503,13 +503,13 @@ export default function HeroAbout() {
                 </div>
 
                 {/* Headline */}
-                <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05]">
+                <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05]">
                   ENGINEERING WITH <br />
                   <span className="text-crimson text-glow-crimson">PURPOSE.</span>
                 </h2>
 
                 {/* Profile Description */}
-                <div className="relative pl-6 border-l-2 border-crimson space-y-4">
+                <div className="relative pl-4 sm:pl-6 border-l-2 border-crimson space-y-4">
                   <p className="text-base sm:text-lg lg:text-xl text-silver-light font-sans font-light leading-relaxed">
                     I'm a Computer Science and Engineering student passionate about building practical digital solutions through software development, data analysis, software testing, and AI-driven technologies.
                   </p>
@@ -546,25 +546,25 @@ export default function HeroAbout() {
                 </div>
 
                 {/* Compact Premium Education Card */}
-                <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-void-900 via-void-900/90 to-void-950 border border-void-800 hover:border-crimson/50 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden group">
+                <div className="p-4 sm:p-7 lg:p-8 rounded-2xl bg-gradient-to-b from-void-900 via-void-900/90 to-void-950 border border-void-800 hover:border-crimson/50 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden group">
                   <div className="absolute top-0 right-0 w-36 h-36 bg-crimson/10 rounded-full blur-3xl pointer-events-none group-hover:bg-crimson/20 transition-all duration-500" />
 
-                  <div className="flex items-start justify-between gap-4 mb-6">
+                  <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 sm:gap-4 mb-6">
                     <div className="flex items-center gap-3.5">
-                      <div className="p-3 rounded-xl bg-crimson/15 border border-crimson/30 text-crimson group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
-                        <GraduationCap className="w-6 h-6" />
+                      <div className="p-2.5 sm:p-3 rounded-xl bg-crimson/15 border border-crimson/30 text-crimson group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
+                        <GraduationCap className="w-5 h-5 sm:w-6 sm:h-6" />
                       </div>
                       <div>
                         <span className="font-mono text-[10px] text-crimson uppercase tracking-widest font-bold block mb-0.5">
                           UNDERGRADUATE STUDIES
                         </span>
-                        <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
+                        <h3 className="font-display text-lg sm:text-xl lg:text-2xl font-bold text-white">
                           B.E. Computer Science &amp; Engineering
                         </h3>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-1.5 px-3 py-1 rounded bg-void-950 border border-void-800 font-mono text-xs text-crimson font-bold shadow-inner">
+                    <div className="flex items-center gap-1.5 px-3 py-1 rounded bg-void-950 border border-void-800 font-mono text-xs text-crimson font-bold shadow-inner self-start sm:self-auto">
                       <Calendar className="w-3.5 h-3.5" />
                       <span>2024 – 2028</span>
                     </div>
@@ -614,17 +614,17 @@ export default function HeroAbout() {
                 </div>
 
                 {/* Three Distinct Structured Blocks */}
-                <div className="space-y-5">
+                <div className="space-y-4 sm:space-y-5">
                   {whatIDoItems.map((item, idx) => {
                     const Icon = item.icon;
                     return (
                       <div
                         key={idx}
-                        className={`p-6 sm:p-7 rounded-2xl bg-void-900/60 border ${item.accent} hover:bg-void-900/90 transition-all duration-300 relative overflow-hidden group`}
+                        className={`p-4 sm:p-6 lg:p-7 rounded-2xl bg-void-900/60 border ${item.accent} hover:bg-void-900/90 transition-all duration-300 relative overflow-hidden group`}
                       >
-                        <div className="flex items-start gap-4 sm:gap-5">
-                          <div className="p-3 rounded-xl bg-void-950 border border-void-800 text-crimson group-hover:bg-crimson group-hover:text-white transition-colors duration-300 flex-shrink-0 mt-0.5">
-                            <Icon className="w-5 h-5" />
+                        <div className="flex items-start gap-3.5 sm:gap-5">
+                          <div className="p-2.5 sm:p-3 rounded-xl bg-void-950 border border-void-800 text-crimson group-hover:bg-crimson group-hover:text-white transition-colors duration-300 flex-shrink-0 mt-0.5">
+                            <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                           </div>
                           <div className="flex-1 space-y-2">
                             <div className="flex items-center justify-between">
@@ -636,7 +636,7 @@ export default function HeroAbout() {
                               </span>
                             </div>
 
-                            <h4 className="font-display text-lg sm:text-xl font-bold text-white group-hover:text-crimson-accent transition-colors">
+                            <h4 className="font-display text-base sm:text-lg lg:text-xl font-bold text-white group-hover:text-crimson-accent transition-colors">
                               {item.title}
                             </h4>
 
@@ -645,7 +645,7 @@ export default function HeroAbout() {
                             </p>
 
                             {/* Technical Highlights */}
-                            <div className="flex flex-wrap gap-1.5 pt-3">
+                            <div className="flex flex-wrap gap-1.5 pt-2 sm:pt-3">
                               {item.skills.map((skill, sIdx) => (
                                 <span
                                   key={sIdx}
@@ -682,13 +682,13 @@ export default function HeroAbout() {
                 </div>
 
                 {/* Clean Minimalist Technical Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-3.5">
                   {engineeringInterests.map((interest, idx) => {
                     const Icon = interest.icon;
                     return (
                       <div
                         key={idx}
-                        className="p-4 rounded-xl bg-void-900/60 border border-void-800 hover:border-crimson/50 hover:bg-void-900 transition-all duration-200 flex items-center justify-between group"
+                        className="p-3.5 sm:p-4 rounded-xl bg-void-900/60 border border-void-800 hover:border-crimson/50 hover:bg-void-900 transition-all duration-200 flex items-center justify-between group"
                       >
                         <div className="flex items-center gap-3">
                           <div className="p-2 rounded-lg bg-void-950 border border-void-800 text-silver-muted group-hover:text-crimson group-hover:border-crimson/40 transition-colors">

@@ -33,7 +33,7 @@ export default function Loader({ onComplete }: LoaderProps) {
 
   return (
     <div
-      className={`fixed inset-0 z-[10000] bg-void-950 flex flex-col justify-between p-8 sm:p-14 select-none transition-all duration-500 ease-in-out ${
+      className={`fixed inset-0 z-[10000] bg-void-950 flex flex-col justify-between p-5 sm:p-14 select-none transition-all duration-500 ease-in-out ${
         isExiting ? 'opacity-0 pointer-events-none scale-105' : 'opacity-100'
       }`}
       aria-label="Loading portfolio experience"

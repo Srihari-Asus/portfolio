@@ -47,7 +47,7 @@ export default function Skills() {
   return (
     <section
       id="skills"
-      className="py-24 sm:py-32 lg:py-36 relative z-10 bg-void-950/80 reveal-on-scroll overflow-hidden"
+      className="py-20 sm:py-28 lg:py-36 relative z-10 bg-void-950/80 reveal-on-scroll overflow-hidden"
     >
       {/* Background Subtle Ambient Lighting */}
       <div
@@ -59,7 +59,7 @@ export default function Skills() {
         aria-hidden="true"
       />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* ================================================================ */}
         {/* 1. SECTION HEADER                                               */}
@@ -74,7 +74,7 @@ export default function Skills() {
             </div>
 
             {/* Large Heading */}
-            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.05]">
+            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05]">
               SKILLS &amp; <br className="sm:hidden" />
               <span className="text-crimson text-glow-crimson">TECHNOLOGY.</span>
             </h2>
@@ -95,7 +95,7 @@ export default function Skills() {
         {/* 2. CATEGORY FILTER NAVIGATION                                    */}
         {/* ================================================================ */}
         <div className="relative mb-14">
-          <div className="flex items-center gap-2 overflow-x-auto pb-4 scrollbar-none -mx-6 px-6 sm:-mx-8 sm:px-8 lg:mx-0 lg:px-0">
+          <div className="flex items-center gap-2 overflow-x-auto pb-4 scrollbar-none -mx-4 px-4 sm:-mx-6 sm:px-6 lg:mx-0 lg:px-0">
             {FILTER_ITEMS.map((filter) => {
               const isSelected = activeFilter === filter;
               return (
@@ -103,7 +103,7 @@ export default function Skills() {
                   key={filter}
                   type="button"
                   onClick={() => setActiveFilter(filter)}
-                  className={`font-mono text-xs px-4 py-2 rounded-md uppercase tracking-wider whitespace-nowrap transition-all duration-300 border flex-shrink-0 cursor-pointer ${
+                  className={`font-mono text-xs px-3.5 py-2 min-h-[40px] rounded-md uppercase tracking-wider whitespace-nowrap transition-all duration-300 border flex-shrink-0 cursor-pointer ${
                     isSelected
                       ? 'bg-crimson border-crimson text-white shadow-[0_0_18px_rgba(229,9,20,0.35)] font-semibold'
                       : 'bg-void-950/90 border-void-800/80 text-silver-muted hover:text-white hover:border-crimson/40 hover:bg-void-900 hover:shadow-[0_0_12px_rgba(229,9,20,0.12)]'
@@ -136,7 +136,7 @@ export default function Skills() {
                 className="space-y-4 rounded-xl bg-void-950/20"
               >
                 {/* Category Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-1">
+                <div className="flex flex-col sm:flex-row sm:items-start sm:items-center justify-between gap-3 sm:gap-4 pb-1">
                   <div className="flex items-start sm:items-center gap-3">
                     {/* Small Dark Square with Category Icon */}
                     <div className="p-2 rounded-md bg-void-950 border border-void-800/90 text-crimson flex items-center justify-center flex-shrink-0 shadow-sm">
@@ -170,11 +170,11 @@ export default function Skills() {
                 </div>
 
                 {/* Technology Cards Grid (Engineered technical skeleton) */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-3.5">
                   {catGroup.skills.map((skill, idx) => (
                     <div
                       key={skill.name}
-                      className="group relative p-4 sm:p-4.5 rounded-lg bg-void-950/80 border border-void-800/70 hover:border-crimson/40 hover:bg-void-900/80 transition-all duration-300 hover:-translate-y-1 shadow-[0_2px_10px_rgba(0,0,0,0.5)] hover:shadow-[0_4px_20px_rgba(229,9,20,0.12)] flex flex-col justify-between overflow-hidden"
+                      className="group relative p-3.5 sm:p-4 rounded-lg bg-void-950/80 border border-void-800/70 hover:border-crimson/40 hover:bg-void-900/80 transition-all duration-300 hover:-translate-y-1 shadow-[0_2px_10px_rgba(0,0,0,0.5)] hover:shadow-[0_4px_20px_rgba(229,9,20,0.12)] flex flex-col justify-between overflow-hidden"
                     >
                       {/* Micro HUD Corner Notch (Top-Left) */}
                       <div className="absolute top-0 left-0 w-2 h-2 border-t border-l border-void-700/60 group-hover:border-crimson/80 transition-colors duration-300 rounded-tl-sm pointer-events-none" />
