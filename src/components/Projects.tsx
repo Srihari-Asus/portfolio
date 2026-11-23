@@ -1,116 +1,138 @@
-import { Github, CheckCircle } from 'lucide-react';
-import { PROJECTS } from '../data/portfolio';
-
-// Map of project id to custom project graphic
-const projectVisuals: Record<string, string> = {
-  agroplay: '/assets/projects/agroplay.svg',
-  avianguard: '/assets/projects/avianguard.svg',
-  nutridairy: '/assets/projects/nutridairy.svg',
-  'quiz-management': '/assets/projects/quiz-management.svg',
-  'customer-behavior': '/assets/projects/shopping-behavior.svg',
-};
+import { Github, ExternalLink, ArrowUpRight, CheckCircle2, Terminal } from 'lucide-react';
+import { PROJECTS } from '../data/projects';
 
 export default function Projects() {
-  const flagshipProjects = PROJECTS.slice(0, 3);
-  const secondaryProjects = PROJECTS.slice(3, 5);
-
   return (
-    <section id="projects" className="py-24 sm:py-32 relative z-10 reveal-on-scroll">
+    <section id="projects" className="py-24 sm:py-32 lg:py-36 relative z-10 reveal-on-scroll overflow-hidden">
+      {/* Background Subtle Ambient Lighting */}
+      <div
+        className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-crimson-dark/12 rounded-full blur-[180px] pointer-events-none -z-10"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-1/4 -right-32 w-[650px] h-[650px] bg-crimson-dark/10 rounded-full blur-[170px] pointer-events-none -z-10"
+        aria-hidden="true"
+      />
+
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 pb-6 border-b border-void-800">
+        {/* ================================================================ */}
+        {/* SECTION HEADER                                                  */}
+        {/* ================================================================ */}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
           <div>
-            <div className="flex items-center gap-2 mb-3 font-mono text-xs text-crimson tracking-widest uppercase">
+            {/* Section Identifier */}
+            <div className="flex items-center gap-2.5 mb-4 font-mono text-xs text-crimson tracking-widest uppercase font-semibold">
               <span>03</span>
               <span className="w-8 h-[1px] bg-crimson" />
               <span>SELECTED WORKS</span>
             </div>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl font-black text-white tracking-tight">
-              FEATURED <span className="text-crimson">PROJECTS.</span>
+
+            {/* Large Heading */}
+            <h2 className="font-display text-4xl sm:text-5xl md:text-6xl font-black text-white tracking-tight leading-[1.05]">
+              FEATURED <span className="text-crimson text-glow-crimson">PROJECTS.</span>
             </h2>
           </div>
-          <p className="font-mono text-xs sm:text-sm text-silver-muted tracking-wider mt-4 md:mt-0 uppercase">
-            5 PRODUCTION-READY IMPLEMENTATIONS
+
+          {/* Right Subtitle */}
+          <p className="font-mono text-xs sm:text-sm text-silver-muted tracking-widest uppercase font-medium md:text-right">
+            06 PRODUCTION-GRADE IMPLEMENTATIONS
           </p>
         </div>
 
-        {/* Flagship Projects: Large Alternating Feature Story Sections */}
+        {/* Blueprint Section Divider with Crimson Leading Accent */}
+        <div className="relative w-full h-[1px] bg-void-800/80 mb-20 lg:mb-28 overflow-hidden">
+          <div className="absolute left-0 top-0 w-24 h-[1px] bg-gradient-to-r from-crimson via-crimson/60 to-transparent" />
+        </div>
+
+        {/* ================================================================ */}
+        {/* ALL 6 PROJECTS: INDIVIDUAL EDITORIAL SHOWCASE ENTRIES           */}
+        {/* ================================================================ */}
         <div className="space-y-28 lg:space-y-36">
-          {flagshipProjects.map((project, idx) => {
+          {PROJECTS.map((project, idx) => {
             const isReversed = idx % 2 === 1;
-            const visualSrc = projectVisuals[project.id];
 
             return (
               <div
                 key={project.id}
-                className={`grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center ${
-                  isReversed ? 'lg:flex-row-reverse' : ''
-                }`}
+                className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center"
               >
-                {/* Visual Showcase (7 Cols) */}
+                {/* Visual Showcase (7 Cols on Desktop) */}
                 <div
                   className={`lg:col-span-7 ${
                     isReversed ? 'lg:order-2' : 'lg:order-1'
                   }`}
                 >
-                  <div className="group relative rounded-xl overflow-hidden border border-void-700 bg-void-900/90 shadow-[0_20px_50px_rgba(0,0,0,0.6)] hover:border-crimson/60 transition-all duration-500">
+                  <div className="group relative rounded-xl overflow-hidden border border-void-800/90 bg-void-950/80 hover:border-crimson/50 transition-all duration-500 shadow-[0_15px_35px_rgba(0,0,0,0.85)] hover:shadow-[0_20px_50px_rgba(229,9,20,0.2)]">
                     
-                    {/* Top Browser / System Chrome Bar */}
-                    <div className="flex items-center justify-between px-4 py-2.5 bg-void-950 border-b border-void-800">
+                    {/* Top System Chrome Bar */}
+                    <div className="flex items-center justify-between px-4 py-2.5 bg-void-950 border-b border-void-800/90">
                       <div className="flex items-center gap-2">
                         <span className="w-2.5 h-2.5 rounded-full bg-crimson" />
                         <span className="w-2.5 h-2.5 rounded-full bg-void-700" />
                         <span className="w-2.5 h-2.5 rounded-full bg-void-800" />
                       </div>
                       <div className="font-mono text-[11px] text-silver-muted uppercase tracking-wider">
-                        {project.category}
+                        SYS // PRJ_{project.number}
                       </div>
-                      <div className="font-mono text-[10px] text-crimson-accent font-semibold px-2 py-0.5 rounded bg-crimson/10 border border-crimson/30">
-                        FLAGSHIP
+                      <div>
+                        {project.liveUrl ? (
+                          <span className="flex items-center gap-1.5 font-mono text-[10px] text-emerald-400 font-semibold px-2 py-0.5 rounded bg-emerald-950/60 border border-emerald-800/60">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                            LIVE SYSTEM
+                          </span>
+                        ) : (
+                          <span className="font-mono text-[10px] text-crimson-accent font-semibold px-2 py-0.5 rounded bg-crimson/10 border border-crimson/30">
+                            ENGINEERED
+                          </span>
+                        )}
                       </div>
                     </div>
 
                     {/* Project Graphic / Visual Preview */}
                     <div className="relative aspect-[16/10] overflow-hidden bg-void-950 flex items-center justify-center p-2">
                       <img
-                        src={visualSrc}
+                        src={project.image}
                         alt={`${project.title} Preview`}
-                        className="w-full h-full object-contain rounded-md transition-transform duration-700 ease-out group-hover:scale-[1.02]"
+                        className="w-full h-full object-cover rounded-md select-none transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                         loading="lazy"
                       />
-                      {/* Ambient corner overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-void-950/60 via-transparent to-transparent pointer-events-none" />
+                      {/* Ambient Bottom Gradient Overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-void-950/70 via-transparent to-transparent pointer-events-none" />
                     </div>
 
-                    {/* Screenshot Replace Info Footnote */}
-                    <div className="px-4 py-2 bg-void-950/90 border-t border-void-800/80 flex items-center justify-between text-[11px] font-mono text-silver-muted">
-                      <span>ASSET: {visualSrc}</span>
-                      <span className="text-crimson/80">REPLACEABLE WITH SCREENSHOT</span>
+                    {/* Bottom Metadata Status Bar */}
+                    <div className="px-4 py-2 bg-void-950/95 border-t border-void-800/80 flex items-center justify-between font-mono text-[11px] text-silver-muted">
+                      <span className="truncate pr-2">TARGET: {project.title.toUpperCase()}</span>
+                      <span className="text-crimson/80 flex items-center gap-1.5 flex-shrink-0">
+                        <Terminal className="w-3 h-3 text-crimson" />
+                        <span>PRODUCTION READY</span>
+                      </span>
                     </div>
+
                   </div>
                 </div>
 
-                {/* Narrative Details (5 Cols) */}
+                {/* Narrative Details (5 Cols on Desktop) */}
                 <div
-                  className={`lg:col-span-5 space-y-6 ${
+                  className={`lg:col-span-5 space-y-5 ${
                     isReversed ? 'lg:order-1' : 'lg:order-2'
                   }`}
                 >
-                  {/* Project Number */}
-                  <div className="flex items-center gap-4">
-                    <span className="font-display text-5xl sm:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-br from-crimson to-void-700 tracking-tighter">
-                      {project.number}
+                  {/* Project Number Header */}
+                  <div className="flex items-center gap-3">
+                    <span className="font-mono text-sm sm:text-base text-crimson font-bold tracking-widest">
+                      {project.number} / 06
                     </span>
-                    <div className="h-[2px] flex-1 bg-gradient-to-r from-void-700 to-transparent" />
+                    <div className="h-[1px] flex-1 bg-gradient-to-r from-void-800 to-transparent" />
                   </div>
 
-                  {/* Title and Subtitle */}
+                  {/* Title and Category */}
                   <div>
-                    <span className="font-mono text-xs uppercase tracking-widest text-crimson block mb-1">
-                      {project.subtitle}
+                    <span className="font-mono text-xs uppercase tracking-widest text-crimson font-medium block mb-1.5">
+                      {project.category}
                     </span>
-                    <h3 className="font-display text-2xl sm:text-3xl font-extrabold text-white leading-tight">
+                    <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white leading-tight tracking-tight">
                       {project.title}
                     </h3>
                   </div>
@@ -120,28 +142,32 @@ export default function Projects() {
                     {project.description}
                   </p>
 
-                  {/* Feature Highlights */}
+                  {/* Key Capabilities / Highlights List */}
                   <div className="space-y-2.5 pt-2">
-                    <h4 className="font-mono text-[11px] uppercase tracking-wider text-silver-muted font-bold">
-                      KEY ARCHITECTURAL FEATURES
+                    <h4 className="font-mono text-[11px] uppercase tracking-wider text-silver-muted font-bold flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-crimson" />
+                      <span>KEY CAPABILITIES &amp; HIGHLIGHTS</span>
                     </h4>
-                    <ul className="space-y-2">
-                      {project.features.map((feature, fIdx) => (
-                        <li key={fIdx} className="flex items-start gap-2.5 font-sans text-xs sm:text-sm text-silver-light">
-                          <CheckCircle className="w-4 h-4 text-crimson flex-shrink-0 mt-0.5" />
-                          <span>{feature}</span>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                      {project.highlights.map((highlight, hIdx) => (
+                        <li
+                          key={hIdx}
+                          className="flex items-start gap-2 font-sans text-xs sm:text-sm text-silver-light/85"
+                        >
+                          <CheckCircle2 className="w-3.5 h-3.5 text-crimson flex-shrink-0 mt-0.5" />
+                          <span className="leading-snug">{highlight}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
 
-                  {/* Tech Stack Pills */}
+                  {/* Technology Stack Pills */}
                   <div className="pt-2">
                     <div className="flex flex-wrap gap-2">
                       {project.technologies.map((tech) => (
                         <span
                           key={tech}
-                          className="font-mono text-xs px-2.5 py-1 rounded bg-void-900 border border-void-700/80 text-silver-light"
+                          className="font-mono text-xs px-2.5 py-1 rounded bg-void-900 border border-void-800 text-silver-light hover:border-void-700 transition-colors"
                         >
                           {tech}
                         </span>
@@ -149,125 +175,37 @@ export default function Projects() {
                     </div>
                   </div>
 
-                  {/* Action Links */}
-                  <div className="flex items-center gap-4 pt-4 border-t border-void-800">
-                    {project.githubUrl ? (
+                  {/* Action Buttons: GitHub always, Live Demo only when available */}
+                  <div className="flex flex-wrap items-center gap-4 pt-4 border-t border-void-800/80">
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-sm bg-void-900/90 hover:bg-crimson border border-void-700 hover:border-crimson text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(229,9,20,0.4)]"
+                    >
+                      <Github className="w-4 h-4" />
+                      <span>VIEW GITHUB</span>
+                      <ArrowUpRight className="w-3.5 h-3.5 text-silver-muted group-hover:text-white transition-colors" />
+                    </a>
+
+                    {project.liveUrl && (
                       <a
-                        href={project.githubUrl}
+                        href={project.liveUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-5 py-2.5 rounded bg-void-900 hover:bg-crimson border border-void-700 hover:border-crimson text-white font-mono text-xs uppercase tracking-wider transition-all duration-300 shadow-sm hover:shadow-[0_0_20px_rgba(229,9,20,0.4)]"
+                        className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-sm bg-crimson hover:bg-crimson-glow border border-crimson/60 hover:border-crimson-glow/60 text-white font-mono text-xs font-semibold tracking-wider transition-all duration-300 shadow-[0_4px_16px_rgba(229,9,20,0.25)] hover:shadow-[0_0_25px_rgba(229,9,20,0.6)]"
                       >
-                        <Github className="w-4 h-4" />
-                        <span>VIEW ON GITHUB</span>
+                        <ExternalLink className="w-4 h-4" />
+                        <span>LIVE DEMO</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </a>
-                    ) : null}
-
-                    {/* Demo link or Coming Soon indicator */}
-                    <div className="inline-flex items-center gap-1.5 px-3 py-2 rounded bg-void-950 border border-void-800/80 text-silver-muted font-mono text-xs cursor-not-allowed">
-                      <span className="w-1.5 h-1.5 rounded-full bg-void-600" />
-                      <span>DEMO COMING SOON</span>
-                    </div>
+                    )}
                   </div>
 
                 </div>
               </div>
             );
           })}
-        </div>
-
-        {/* Secondary Featured Projects (Projects 04 and 05) */}
-        <div className="mt-28 lg:mt-36">
-          <div className="mb-10 flex items-center gap-3">
-            <span className="w-3 h-3 bg-crimson" />
-            <h3 className="font-display text-2xl font-bold text-white tracking-tight">
-              SYSTEMS ARCHITECTURE &amp; DATA ANALYTICS
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-10">
-            {secondaryProjects.map((project) => {
-              const visualSrc = projectVisuals[project.id];
-              return (
-                <div
-                  key={project.id}
-                  className="rounded-xl overflow-hidden border border-void-800 bg-void-900/60 hover:border-crimson/50 hover:bg-void-900 transition-all duration-300 flex flex-col justify-between group shadow-lg"
-                >
-                  <div>
-                    {/* Visual Preview */}
-                    <div className="relative aspect-[16/10] overflow-hidden bg-void-950 p-2 border-b border-void-800">
-                      <img
-                        src={visualSrc}
-                        alt={`${project.title} Preview`}
-                        className="w-full h-full object-contain rounded transition-transform duration-500 group-hover:scale-102"
-                        loading="lazy"
-                      />
-                      <div className="absolute top-4 left-4 bg-void-950/90 border border-void-700 px-2.5 py-1 rounded font-mono text-[11px] text-crimson font-bold">
-                        PROJECT {project.number}
-                      </div>
-                    </div>
-
-                    {/* Content */}
-                    <div className="p-6 sm:p-8 space-y-4">
-                      <div>
-                        <span className="font-mono text-xs uppercase tracking-wider text-crimson block mb-1">
-                          {project.subtitle}
-                        </span>
-                        <h4 className="font-display text-xl sm:text-2xl font-bold text-white group-hover:text-crimson-accent transition-colors">
-                          {project.title}
-                        </h4>
-                      </div>
-
-                      <p className="font-sans text-sm text-silver-light/85 leading-relaxed font-light">
-                        {project.description}
-                      </p>
-
-                      {/* Features */}
-                      <ul className="space-y-1.5 pt-2">
-                        {project.features.slice(0, 4).map((feat, fIdx) => (
-                          <li key={fIdx} className="flex items-center gap-2 font-sans text-xs text-silver-muted">
-                            <span className="w-1.5 h-1.5 rounded-full bg-crimson" />
-                            <span>{feat}</span>
-                          </li>
-                        ))}
-                      </ul>
-
-                      {/* Tech stack */}
-                      <div className="flex flex-wrap gap-1.5 pt-2">
-                        {project.technologies.map((t) => (
-                          <span
-                            key={t}
-                            className="font-mono text-[11px] px-2 py-0.5 rounded bg-void-950 border border-void-800 text-silver-light"
-                          >
-                            {t}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Actions */}
-                  <div className="p-6 sm:px-8 sm:pb-8 pt-0 flex items-center justify-between border-t border-void-800/60 mt-4">
-                    {project.githubUrl ? (
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 font-mono text-xs text-white hover:text-crimson transition-colors"
-                      >
-                        <Github className="w-4 h-4" />
-                        <span>VIEW REPOSITORY</span>
-                      </a>
-                    ) : null}
-
-                    <span className="font-mono text-[11px] text-silver-muted">
-                      LINK COMING SOON
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
         </div>
 
       </div>
