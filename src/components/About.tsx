@@ -1,159 +1,364 @@
-import { GraduationCap, Code2, BarChart3, ShieldCheck, Cpu, ArrowUpRight } from 'lucide-react';
-import { PERSONAL_INFO } from '../data/portfolio';
+import { useEffect, useRef } from 'react';
+import {
+  GraduationCap,
+  MapPin,
+  Calendar,
+  Code2,
+  BarChart3,
+  ShieldCheck,
+  Brain,
+  Cpu,
+  Eye,
+  Layers,
+  CheckCircle2,
+  Terminal,
+} from 'lucide-react';
+import { gsap } from '../hooks/useGSAPAnimations';
 
 export default function About() {
-  const technicalDimensions = [
+  const sectionRef = useRef<HTMLElement>(null);
+  const glowRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion || !sectionRef.current) return;
+
+    const ctx = gsap.context(() => {
+      // Progressive scroll reveal for right-side content blocks
+      const blocks = gsap.utils.toArray<HTMLElement>('.about-scroll-block');
+      blocks.forEach((block) => {
+        gsap.fromTo(
+          block,
+          {
+            opacity: 0,
+            y: 40,
+          },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.85,
+            ease: 'power3.out',
+            scrollTrigger: {
+              trigger: block,
+              start: 'top 82%',
+              toggleActions: 'play none none none',
+            },
+          }
+        );
+      });
+
+      // Subtle atmospheric glow intensity shift behind sticky portrait as user scrolls
+      if (glowRef.current) {
+        gsap.to(glowRef.current, {
+          scale: 1.15,
+          opacity: 0.9,
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 30%',
+            end: 'bottom 80%',
+            scrub: 1.5,
+          },
+        });
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const whatIDoItems = [
     {
-      category: '01 // SOFTWARE DEVELOPMENT',
-      title: 'Full-Stack Engineering',
-      desc: 'Building responsive applications with modern frontend technologies, backend services, REST APIs, and database-driven systems.',
-      keywords: ['React', 'TypeScript', 'Java', 'Spring Boot', 'Node.js', 'REST APIs'],
+      title: 'FULL-STACK DEVELOPMENT',
+      subtitle: 'Modern Web & Distributed Services',
+      desc: 'Building responsive web applications, developing frontend experiences, implementing backend APIs, and connecting database-driven systems.',
       icon: Code2,
+      accent: 'border-crimson/30 hover:border-crimson/70',
+      tagColor: 'text-crimson-accent',
+      skills: ['React', 'TypeScript', 'Node.js', 'Spring Boot', 'REST APIs', 'PostgreSQL'],
     },
     {
-      category: '02 // DATA ANALYSIS',
-      title: 'Data Analysis & Insights',
-      desc: 'Exploring datasets, identifying patterns, analyzing customer behavior, and transforming raw information into meaningful insights and visualizations.',
-      keywords: ['Python', 'SQL', 'Power BI', 'Data Visualization', 'Analytical Thinking'],
+      title: 'SOFTWARE ANALYSIS',
+      subtitle: 'Data Patterns & Requirements',
+      desc: 'Understanding requirements, examining systems and data, identifying patterns, breaking down problems, and converting findings into practical solutions.',
       icon: BarChart3,
+      accent: 'border-void-800 hover:border-crimson/60',
+      tagColor: 'text-amber-400',
+      skills: ['Data Modeling', 'SQL', 'Pattern Recognition', 'Power BI', 'Problem Breakdown'],
     },
     {
-      category: '03 // SOFTWARE TESTING',
-      title: 'Software Quality & Testing',
-      desc: 'Validating application functionality, testing API integrations, identifying defects, debugging issues, and ensuring software behaves as expected.',
-      keywords: ['Functional Testing', 'API Testing', 'Selenium', 'Debugging', 'Validation'],
+      title: 'SOFTWARE TESTING',
+      subtitle: 'Quality Assurance & Validation',
+      desc: 'Validating application functionality, testing API integrations, identifying bugs, debugging issues, and improving reliability and user experience.',
       icon: ShieldCheck,
-    },
-    {
-      category: '04 // AI & COMPUTER VISION',
-      title: 'Applied AI & Intelligent Systems',
-      desc: 'Experimenting with AI-powered applications, computer vision, intelligent automation, and context-aware systems to solve practical problems.',
-      keywords: ['Gemini API', 'OpenCV', 'YOLO', 'AI Integration', 'Computer Vision'],
-      icon: Cpu,
+      accent: 'border-void-800 hover:border-crimson/60',
+      tagColor: 'text-emerald-400',
+      skills: ['API Verification', 'Selenium', 'Functional Testing', 'Debugging', 'Defect Analysis'],
     },
   ];
 
-  const methodologies = [
-    {
-      step: '01',
-      title: 'Build practical solutions.',
-      desc: 'Develop applications that solve meaningful problems instead of building features without purpose.',
-    },
-    {
-      step: '02',
-      title: 'Analyze before implementing.',
-      desc: 'Understand the problem, explore possible approaches, and make decisions based on logic and available information.',
-    },
-    {
-      step: '03',
-      title: 'Test and refine.',
-      desc: 'Validate functionality, identify issues, debug, and improve the reliability of software.',
-    },
-    {
-      step: '04',
-      title: 'Learn and adapt.',
-      desc: 'Explore new technologies, experiment with ideas, and continuously improve development practices.',
-    },
+  const engineeringInterests = [
+    { title: 'Artificial Intelligence', icon: Brain, tag: '01' },
+    { title: 'Full-Stack Development', icon: Layers, tag: '02' },
+    { title: 'Data Analytics', icon: BarChart3, tag: '03' },
+    { title: 'Computer Vision', icon: Eye, tag: '04' },
+    { title: 'Software Quality', icon: ShieldCheck, tag: '05' },
+    { title: 'Intelligent Systems', icon: Cpu, tag: '06' },
   ];
 
   return (
-    <section id="about" className="py-24 sm:py-32 relative z-10 reveal-on-scroll">
+    <section
+      id="about"
+      ref={sectionRef}
+      className="py-24 sm:py-32 lg:py-36 relative z-10 overflow-hidden"
+    >
+      {/* Background Subtle Ambient Lighting */}
+      <div
+        className="absolute top-1/4 -left-32 w-[550px] h-[550px] bg-crimson-dark/10 rounded-full blur-[160px] pointer-events-none -z-10"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute bottom-1/4 -right-32 w-[600px] h-[600px] bg-crimson-dark/12 rounded-full blur-[180px] pointer-events-none -z-10"
+        aria-hidden="true"
+      />
+
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         
-        {/* Section Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-void-800">
-          <div>
-            <div className="flex items-center gap-2 mb-3 font-mono text-xs text-crimson tracking-widest uppercase font-semibold">
-              <span>01</span>
-              <span className="text-crimson/50">—</span>
-              <span>ABOUT IDENTITY</span>
-            </div>
-            <h2 className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05]">
-              ENGINEERING WITH <br className="hidden sm:inline" />
-              <span className="text-crimson text-glow-crimson">PURPOSE.</span>
-            </h2>
-          </div>
-          <div className="mt-4 md:mt-0 md:text-right font-mono text-xs sm:text-sm text-silver-muted tracking-wider uppercase space-y-1">
-            <div className="text-silver-light font-medium">B.E. CSE · COIMBATORE</div>
-            <div className="text-crimson font-semibold">2024–2028</div>
-          </div>
-        </div>
-
-        {/* Editorial Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+        {/* Main Two-Column Scroll-Driven Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative">
           
-          {/* Left Column: Narrative Introduction & Core Technical Dimensions */}
-          <div className="lg:col-span-7 space-y-12">
+          {/* ======================================================== */}
+          {/* LEFT COLUMN: STICKY CINEMATIC PORTRAIT FRAME             */}
+          {/* ======================================================== */}
+          <div className="lg:col-span-5 lg:sticky lg:top-28 z-20 flex flex-col items-center">
             
-            {/* Introduction Paragraphs */}
-            <div className="relative pl-6 sm:pl-8 border-l-2 border-crimson space-y-5">
-              <p className="text-lg sm:text-xl md:text-[1.25rem] text-silver-light font-sans font-light leading-relaxed">
-                I'm a Computer Science and Engineering student passionate about building impactful digital solutions through{' '}
-                <span className="text-white font-medium">software development</span>,{' '}
-                <span className="text-white font-medium">data analysis</span>,{' '}
-                <span className="text-white font-medium">software testing</span>, and{' '}
-                <span className="text-white font-medium">AI-driven technologies</span>.
-              </p>
+            <div className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px] aspect-[4/5] group">
+              
+              {/* Dynamic Scroll-Responsive Ambient Crimson Glow */}
+              <div
+                ref={glowRef}
+                className="absolute -inset-4 sm:-inset-6 rounded-[36px] bg-gradient-to-tr from-crimson/25 via-crimson-dark/20 to-transparent blur-[50px] pointer-events-none -z-10 transition-all duration-700 ease-out"
+                aria-hidden="true"
+              />
+              <div
+                className="absolute inset-x-8 -bottom-8 h-24 bg-crimson/25 blur-3xl pointer-events-none -z-10"
+                aria-hidden="true"
+              />
 
-              <p className="text-base sm:text-lg text-silver-muted font-sans font-light leading-relaxed">
-                I enjoy transforming ideas into practical applications, developing full-stack systems, analyzing data to uncover insights, and testing software to improve functionality and reliability. My interests span application development, intelligent systems, computer vision, data-driven problem-solving, and software quality.
-              </p>
+              {/* Minimal Technical HUD Label (Top) */}
+              <div className="absolute -top-3 left-6 z-30 px-3 py-1 rounded bg-void-950/90 border border-void-800 text-[10px] font-mono tracking-widest text-silver-muted flex items-center gap-1.5 shadow-sm">
+                <span className="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse" />
+                <span>SYS // IDENTITY_FRAME</span>
+              </div>
 
-              <p className="text-base sm:text-lg text-silver-light/95 font-sans font-light leading-relaxed">
-                I believe in building technology that is not only functional, but{' '}
-                <span className="text-white font-medium">useful</span>,{' '}
-                <span className="text-white font-medium">reliable</span>,{' '}
-                <span className="text-white font-medium">scalable</span>, and thoughtfully designed.
-              </p>
+              {/* Portrait Frame Container */}
+              <div className="relative w-full h-full rounded-[28px] overflow-hidden border border-crimson/30 hover:border-crimson/60 bg-gradient-to-b from-void-900 via-void-950 to-void-950 shadow-[0_20px_50px_rgba(0,0,0,0.85)] group-hover:shadow-[0_25px_60px_rgba(229,9,20,0.25)] transition-all duration-500 ease-out flex items-center justify-center">
+                
+                {/* Portrait Image */}
+                <img
+                  src="/assets/profile/portrait.png"
+                  alt="Srihari S. — Full-Stack Developer & AI Enthusiast"
+                  className="w-full h-full object-cover object-top sm:object-center select-none pointer-events-none transition-transform duration-700 ease-out group-hover:scale-[1.03]"
+                  loading="eager"
+                  decoding="async"
+                />
+
+                {/* Gentle Bottom Gradient Fade into Dark Void */}
+                <div
+                  className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-void-950 via-void-950/70 to-transparent pointer-events-none z-10"
+                  aria-hidden="true"
+                />
+
+                {/* Ultra-subtle Inner Border Highlight */}
+                <div
+                  className="absolute inset-0 rounded-[28px] border border-white/5 pointer-events-none z-20"
+                  aria-hidden="true"
+                />
+
+                {/* Minimal Technical HUD Badge (Bottom Left) */}
+                <div className="absolute bottom-4 left-4 z-20 font-mono text-[10px] tracking-wider text-silver-light/80 bg-void-950/80 backdrop-blur-md px-2.5 py-1 rounded border border-void-800/80">
+                  SRIHARI S. // 2024–2028
+                </div>
+              </div>
+
             </div>
 
-            {/* Core Technical Dimensions Feature Blocks */}
-            <div className="space-y-6 pt-2">
-              <div className="flex items-center justify-between pb-2 border-b border-void-800/80">
-                <h3 className="font-mono text-xs uppercase tracking-[0.25em] text-silver-muted font-bold">
-                  CORE TECHNICAL DIMENSIONS
-                </h3>
-                <span className="font-mono text-[11px] text-crimson font-medium">
-                  4 SPECIALIZATION DOMAINS
+            {/* Quick Identification Meta Below Frame (Desktop only) */}
+            <div className="hidden lg:flex items-center justify-between w-full max-w-[420px] pt-4 font-mono text-[11px] text-silver-muted">
+              <span className="flex items-center gap-1.5">
+                <Terminal className="w-3.5 h-3.5 text-crimson" />
+                <span>SCROLL TO DISCOVER</span>
+              </span>
+              <span className="text-crimson-accent font-medium">B.E. CSE</span>
+            </div>
+
+          </div>
+
+          {/* ======================================================== */}
+          {/* RIGHT COLUMN: PROGRESSIVE SCROLL-DRIVEN CONTENT BLOCKS   */}
+          {/* ======================================================== */}
+          <div className="lg:col-span-7 space-y-24 sm:space-y-32">
+            
+            {/* ------------------------------------------------------ */}
+            {/* SECTION 01 — PROFILE                                   */}
+            {/* ------------------------------------------------------ */}
+            <div className="about-scroll-block space-y-8 pt-2">
+              
+              {/* Header Badge */}
+              <div className="flex items-center gap-2.5 font-mono text-xs text-crimson tracking-widest uppercase font-semibold">
+                <span>01</span>
+                <span className="text-crimson/50">—</span>
+                <span>PROFILE</span>
+              </div>
+
+              {/* Headline */}
+              <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.05]">
+                ENGINEERING WITH <br />
+                <span className="text-crimson text-glow-crimson">PURPOSE.</span>
+              </h2>
+
+              {/* Profile Description */}
+              <div className="relative pl-6 border-l-2 border-crimson space-y-4">
+                <p className="text-base sm:text-lg lg:text-xl text-silver-light font-sans font-light leading-relaxed">
+                  I'm a Computer Science and Engineering student passionate about building practical digital solutions through software development, data analysis, software testing, and AI-driven technologies.
+                </p>
+                <p className="text-sm sm:text-base text-silver-muted font-sans font-light leading-relaxed">
+                  I enjoy transforming ideas into applications, analyzing systems to uncover insights, and testing software to improve functionality and reliability. My interests span full-stack development, intelligent systems, data-driven problem-solving, and software quality.
+                </p>
+              </div>
+
+              {/* Three Role Tags */}
+              <div className="flex flex-wrap items-center gap-2.5 pt-2">
+                <span className="font-mono text-xs px-4 py-1.5 rounded-full bg-void-900 border border-void-700/80 text-silver-light hover:border-crimson hover:text-white transition-colors duration-200">
+                  FULL-STACK DEVELOPER
+                </span>
+                <span className="font-mono text-xs px-4 py-1.5 rounded-full bg-void-900 border border-void-700/80 text-silver-light hover:border-crimson hover:text-white transition-colors duration-200">
+                  SOFTWARE ANALYST
+                </span>
+                <span className="font-mono text-xs px-4 py-1.5 rounded-full bg-void-900 border border-void-700/80 text-silver-light hover:border-crimson hover:text-white transition-colors duration-200">
+                  SOFTWARE TESTER
                 </span>
               </div>
 
-              <div className="grid grid-cols-1 gap-4">
-                {technicalDimensions.map((dim, idx) => {
-                  const Icon = dim.icon;
+            </div>
+
+            {/* ------------------------------------------------------ */}
+            {/* SECTION 02 — EDUCATION                                 */}
+            {/* ------------------------------------------------------ */}
+            <div className="about-scroll-block space-y-6">
+              
+              {/* Header Badge */}
+              <div className="flex items-center gap-2.5 font-mono text-xs text-crimson tracking-widest uppercase font-semibold">
+                <span>02</span>
+                <span className="text-crimson/50">—</span>
+                <span>EDUCATION</span>
+              </div>
+
+              {/* Compact Premium Education Card */}
+              <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-void-900 via-void-900/90 to-void-950 border border-void-800 hover:border-crimson/50 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden group">
+                <div className="absolute top-0 right-0 w-36 h-36 bg-crimson/10 rounded-full blur-3xl pointer-events-none group-hover:bg-crimson/20 transition-all duration-500" />
+                
+                <div className="flex items-start justify-between gap-4 mb-6">
+                  <div className="flex items-center gap-3.5">
+                    <div className="p-3 rounded-xl bg-crimson/15 border border-crimson/30 text-crimson group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
+                      <GraduationCap className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <span className="font-mono text-[10px] text-crimson uppercase tracking-widest font-bold block mb-0.5">
+                        UNDERGRADUATE STUDIES
+                      </span>
+                      <h3 className="font-display text-xl sm:text-2xl font-bold text-white">
+                        B.E. Computer Science &amp; Engineering
+                      </h3>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1.5 px-3 py-1 rounded bg-void-950 border border-void-800 font-mono text-xs text-crimson font-bold shadow-inner">
+                    <Calendar className="w-3.5 h-3.5" />
+                    <span>2024 – 2028</span>
+                  </div>
+                </div>
+
+                <div className="space-y-4 pt-4 border-t border-void-800/80">
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div>
+                      <span className="font-mono text-[11px] text-silver-muted block uppercase tracking-wider">
+                        INSTITUTION
+                      </span>
+                      <span className="font-sans text-base font-semibold text-silver-light">
+                        Sri Krishna College of Technology
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-1.5 text-xs text-silver-muted font-sans sm:self-end">
+                      <MapPin className="w-3.5 h-3.5 text-crimson" />
+                      <span>Coimbatore, India</span>
+                    </div>
+                  </div>
+
+                  <p className="text-xs sm:text-sm text-silver-muted leading-relaxed font-sans pt-1">
+                    Focused on scalable computing architectures, modern full-stack systems, algorithmic problem solving, and intelligent technology integration.
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* ------------------------------------------------------ */}
+            {/* SECTION 03 — WHAT I DO                                 */}
+            {/* ------------------------------------------------------ */}
+            <div className="about-scroll-block space-y-6">
+              
+              {/* Header Badge */}
+              <div className="flex items-center justify-between pb-2 border-b border-void-800/80">
+                <div className="flex items-center gap-2.5 font-mono text-xs text-crimson tracking-widest uppercase font-semibold">
+                  <span>03</span>
+                  <span className="text-crimson/50">—</span>
+                  <span>WHAT I DO</span>
+                </div>
+                <span className="font-mono text-[11px] text-silver-muted">
+                  CORE SPECIALIZATION AREAS
+                </span>
+              </div>
+
+              {/* Three Distinct Structured Blocks */}
+              <div className="space-y-5">
+                {whatIDoItems.map((item, idx) => {
+                  const Icon = item.icon;
                   return (
                     <div
                       key={idx}
-                      className="group p-5 sm:p-6 rounded-xl bg-void-900/60 border border-void-800 hover:border-crimson/50 hover:bg-void-900/90 transition-all duration-300 relative overflow-hidden"
+                      className={`p-6 sm:p-7 rounded-2xl bg-void-900/60 border ${item.accent} hover:bg-void-900/90 transition-all duration-300 relative overflow-hidden group`}
                     >
                       <div className="flex items-start gap-4 sm:gap-5">
-                        <div className="p-2.5 rounded-lg bg-void-950 border border-void-800 text-crimson group-hover:bg-crimson group-hover:text-white group-hover:border-crimson transition-colors duration-300 flex-shrink-0 mt-0.5">
+                        <div className="p-3 rounded-xl bg-void-950 border border-void-800 text-crimson group-hover:bg-crimson group-hover:text-white transition-colors duration-300 flex-shrink-0 mt-0.5">
                           <Icon className="w-5 h-5" />
                         </div>
                         <div className="flex-1 space-y-2">
                           <div className="flex items-center justify-between">
                             <span className="font-mono text-[10px] tracking-widest text-crimson-accent uppercase font-bold">
-                              {dim.category}
+                              DISCIPLINE 0{idx + 1}
                             </span>
-                            <ArrowUpRight className="w-3.5 h-3.5 text-void-600 group-hover:text-crimson group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200" />
+                            <span className={`font-mono text-[10px] ${item.tagColor} font-semibold uppercase`}>
+                              ACTIVE FOCUS
+                            </span>
                           </div>
 
-                          <h4 className="font-display text-base sm:text-lg font-bold text-white group-hover:text-crimson-accent transition-colors">
-                            {dim.title}
+                          <h4 className="font-display text-lg sm:text-xl font-bold text-white group-hover:text-crimson-accent transition-colors">
+                            {item.title}
                           </h4>
 
                           <p className="font-sans text-xs sm:text-sm text-silver-muted leading-relaxed">
-                            {dim.desc}
+                            {item.desc}
                           </p>
 
-                          {/* Technical Keywords Pills */}
-                          <div className="flex flex-wrap gap-1.5 pt-2">
-                            {dim.keywords.map((kw, kIdx) => (
+                          {/* Technical Highlights */}
+                          <div className="flex flex-wrap gap-1.5 pt-3">
+                            {item.skills.map((skill, sIdx) => (
                               <span
-                                key={kIdx}
-                                className="font-mono text-[10px] sm:text-[11px] px-2 py-0.5 rounded bg-void-950/80 border border-void-800 text-silver-light/80 group-hover:border-void-700 transition-colors"
+                                key={sIdx}
+                                className="font-mono text-[10px] sm:text-[11px] px-2.5 py-1 rounded bg-void-950 border border-void-800 text-silver-light/80 group-hover:border-void-700 transition-colors"
                               >
-                                {kw}
+                                {skill}
                               </span>
                             ))}
                           </div>
@@ -163,89 +368,60 @@ export default function About() {
                   );
                 })}
               </div>
+
             </div>
 
-          </div>
-
-          {/* Right Column: Formal Education & Developer Methodology */}
-          <div className="lg:col-span-5 space-y-8">
-            
-            {/* Education Card */}
-            <div className="p-6 sm:p-7 rounded-2xl bg-gradient-to-b from-void-900 to-void-950 border border-void-800 hover:border-crimson/40 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden group">
-              <div className="absolute top-0 right-0 w-36 h-36 bg-crimson/10 rounded-full blur-3xl pointer-events-none group-hover:bg-crimson/15 transition-colors duration-500" />
+            {/* ------------------------------------------------------ */}
+            {/* SECTION 04 — ENGINEERING INTERESTS                     */}
+            {/* ------------------------------------------------------ */}
+            <div className="about-scroll-block space-y-6">
               
-              <div className="flex items-center gap-3.5 mb-6">
-                <div className="p-2.5 rounded-lg bg-crimson/15 border border-crimson/30 text-crimson group-hover:scale-105 transition-transform duration-300">
-                  <GraduationCap className="w-6 h-6" />
+              {/* Header Badge */}
+              <div className="flex items-center justify-between pb-2 border-b border-void-800/80">
+                <div className="flex items-center gap-2.5 font-mono text-xs text-crimson tracking-widest uppercase font-semibold">
+                  <span>04</span>
+                  <span className="text-crimson/50">—</span>
+                  <span>ENGINEERING INTERESTS</span>
                 </div>
-                <div>
-                  <span className="font-mono text-[11px] text-crimson uppercase tracking-wider block font-semibold">
-                    FORMAL EDUCATION
-                  </span>
-                  <h4 className="font-display text-lg font-bold text-white">
-                    Computer Science &amp; Engineering
-                  </h4>
-                </div>
+                <span className="font-mono text-[11px] text-crimson font-medium">
+                  ACTIVE RESEARCH &amp; LEARNING
+                </span>
               </div>
 
-              <div className="space-y-4 border-t border-void-800/80 pt-5">
-                <div>
-                  <span className="font-mono text-[11px] text-silver-muted block uppercase tracking-wider">INSTITUTION</span>
-                  <span className="font-sans text-sm font-semibold text-silver-light block mt-0.5">
-                    {PERSONAL_INFO.education.institution}
-                  </span>
-                </div>
+              {/* Clean Minimalist Technical Grid (No percentages) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {engineeringInterests.map((interest, idx) => {
+                  const Icon = interest.icon;
+                  return (
+                    <div
+                      key={idx}
+                      className="p-4 rounded-xl bg-void-900/60 border border-void-800 hover:border-crimson/50 hover:bg-void-900 transition-all duration-200 flex items-center justify-between group"
+                    >
+                      <div className="flex items-center gap-3">
+                        <div className="p-2 rounded-lg bg-void-950 border border-void-800 text-silver-muted group-hover:text-crimson group-hover:border-crimson/40 transition-colors">
+                          <Icon className="w-4 h-4" />
+                        </div>
+                        <span className="font-display text-sm font-bold text-white group-hover:text-crimson-accent transition-colors">
+                          {interest.title}
+                        </span>
+                      </div>
 
-                <div className="flex justify-between items-start gap-4">
-                  <div>
-                    <span className="font-mono text-[11px] text-silver-muted block uppercase tracking-wider">DEGREE DETAILS</span>
-                    <span className="font-sans text-sm text-silver-light block mt-0.5">
-                      {PERSONAL_INFO.education.degree}
-                    </span>
-                  </div>
-                  <div className="text-right flex-shrink-0">
-                    <span className="font-mono text-[11px] text-silver-muted block uppercase tracking-wider">TIMELINE</span>
-                    <span className="font-mono text-xs text-crimson font-bold bg-void-950 border border-void-800 px-2.5 py-1 rounded inline-block mt-0.5">
-                      {PERSONAL_INFO.education.duration}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="pt-2 text-xs text-silver-muted leading-relaxed font-sans border-t border-void-800/50">
-                  {PERSONAL_INFO.education.focus}
-                </div>
-              </div>
-            </div>
-
-            {/* Developer Methodology Panel */}
-            <div className="p-6 sm:p-7 rounded-2xl bg-void-900/60 border border-void-800 hover:border-void-700 transition-colors duration-300">
-              <div className="flex items-center justify-between mb-6 pb-3 border-b border-void-800">
-                <h4 className="font-mono text-xs uppercase tracking-[0.2em] text-silver-muted font-bold">
-                  DEVELOPER METHODOLOGY
-                </h4>
-                <span className="w-2 h-2 rounded-full bg-crimson shadow-[0_0_8px_#ff2a38]" />
-              </div>
-
-              <div className="space-y-4">
-                {methodologies.map((item, mIdx) => (
-                  <div
-                    key={mIdx}
-                    className="p-3.5 rounded-lg bg-void-950/60 border border-void-800/60 hover:border-crimson/40 hover:bg-void-950 transition-all duration-200 group"
-                  >
-                    <div className="flex items-baseline gap-2.5 mb-1">
-                      <span className="font-mono text-xs text-crimson font-bold">
-                        {item.step}
+                      <span className="font-mono text-[11px] text-silver-muted font-bold group-hover:text-crimson transition-colors">
+                        #{interest.tag}
                       </span>
-                      <h5 className="font-display text-sm font-bold text-white group-hover:text-crimson-accent transition-colors">
-                        {item.title}
-                      </h5>
                     </div>
-                    <p className="font-sans text-xs text-silver-muted leading-relaxed pl-6">
-                      {item.desc}
-                    </p>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
+
+              {/* Concluding Philosophy Footnote */}
+              <div className="p-4 rounded-xl bg-void-950/70 border border-void-800/80 flex items-center gap-3 text-xs text-silver-muted font-sans">
+                <CheckCircle2 className="w-4 h-4 text-crimson flex-shrink-0" />
+                <span>
+                  Committed to building production-grade software that bridges robust engineering with practical real-world impact.
+                </span>
+              </div>
+
             </div>
 
           </div>
