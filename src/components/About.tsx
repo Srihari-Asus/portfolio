@@ -76,13 +76,13 @@ export default function About() {
       skills: ['React', 'TypeScript', 'Node.js', 'Spring Boot', 'REST APIs', 'PostgreSQL'],
     },
     {
-      title: 'SOFTWARE ANALYSIS',
+      title: 'DATA ANALYSIS',
       subtitle: 'Data Patterns & Requirements',
       desc: 'Understanding requirements, examining systems and data, identifying patterns, breaking down problems, and converting findings into practical solutions.',
       icon: BarChart3,
       accent: 'border-void-800 hover:border-crimson/60',
       tagColor: 'text-amber-400',
-      skills: ['Data Modeling', 'SQL', 'Pattern Recognition', 'Power BI', 'Problem Breakdown'],
+      skills: ['Data Modeling', 'SQL', 'Pattern Recognition', 'Power BI'],
     },
     {
       title: 'SOFTWARE TESTING',
@@ -108,7 +108,7 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="py-24 sm:py-32 lg:py-36 relative z-10 overflow-hidden"
+      className="py-24 sm:py-32 lg:py-36 relative z-10 overflow-visible"
     >
       {/* Background Subtle Ambient Lighting */}
       <div
@@ -122,13 +122,14 @@ export default function About() {
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         
-        {/* Main Two-Column Scroll-Driven Layout */}
+        {/* Main Two-Column Scroll-Driven Layout with Parent Boundary for Sticky */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative">
           
           {/* ======================================================== */}
           {/* LEFT COLUMN: STICKY CINEMATIC PORTRAIT FRAME             */}
+          {/* Constrained strictly to the height of this About section */}
           {/* ======================================================== */}
-          <div className="lg:col-span-5 lg:sticky lg:top-28 z-20 flex flex-col items-center">
+          <div className="lg:col-span-5 lg:sticky lg:top-28 self-start z-20 flex flex-col items-center">
             
             <div className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px] aspect-[4/5] group">
               
@@ -231,7 +232,7 @@ export default function About() {
                   FULL-STACK DEVELOPER
                 </span>
                 <span className="font-mono text-xs px-4 py-1.5 rounded-full bg-void-900 border border-void-700/80 text-silver-light hover:border-crimson hover:text-white transition-colors duration-200">
-                  SOFTWARE ANALYST
+                  DATA ANALYST
                 </span>
                 <span className="font-mono text-xs px-4 py-1.5 rounded-full bg-void-900 border border-void-700/80 text-silver-light hover:border-crimson hover:text-white transition-colors duration-200">
                   SOFTWARE TESTER

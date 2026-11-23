@@ -27,7 +27,7 @@ export default function App() {
   }, [isLoading]);
 
   return (
-    <div className="relative min-h-screen bg-void-950 text-silver-light selection:bg-crimson selection:text-white font-sans antialiased overflow-x-hidden">
+    <div className="relative min-h-screen bg-void-950 text-silver-light selection:bg-crimson selection:text-white font-sans antialiased overflow-x-clip">
       {/* Cinematic Loading Experience */}
       {isLoading && <Loader onComplete={() => setIsLoading(false)} />}
 
