@@ -188,13 +188,13 @@ export default function Hero() {
 
       </div>
 
-      {/* Floating Scroll Indicator */}
+      {/* Floating Scroll Indicator
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 hidden md:flex flex-col items-center gap-2 font-mono text-[11px] text-silver-muted opacity-60 hover:opacity-100 transition-opacity cursor-pointer">
         <span>SCROLL TO EXPLORE</span>
         <div className="w-4 h-7 rounded-full border border-void-600 flex items-start justify-center p-1">
           <div className="w-1 h-2 rounded-full bg-crimson animate-bounce" />
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
