@@ -59,7 +59,7 @@ export default function Navbar() {
         >
           <span className="w-2 h-2 rounded-full bg-crimson group-hover:scale-150 transition-transform duration-300 shadow-[0_0_8px_#ff2a38]" />
           <span className="font-display text-xl sm:text-2xl font-black tracking-tight text-white group-hover:text-crimson-accent transition-colors duration-200">
-            SRIHARI<span className="text-crimson">.</span>
+            SRIHARI<span className="text-crimson"> S</span>
           </span>
         </a>
 
