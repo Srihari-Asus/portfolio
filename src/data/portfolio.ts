@@ -48,7 +48,7 @@ export const PERSONAL_INFO = {
   tagline: "FULL-STACK DEVELOPER",
   roleSubhead: "Full-Stack Developer · Software Developer · AI Enthusiast",
   heroDescription:
-    "Building digital experiences through software engineering, intelligent systems, and creative problem-solving.",
+    "Building full-stack applications and AI-powered systems that turn real-world problems into practical solutions.",
   aboutText:
     "I'm a Computer Science and Engineering student passionate about building impactful digital solutions through full-stack development and AI-driven technologies. I enjoy transforming ideas into practical applications, exploring intelligent systems, and solving real-world problems through software. From developing web applications to experimenting with computer vision and AI-powered solutions, I focus on creating technology that is useful, scalable, and user-friendly.",
   secondaryInfo: "JAVA · REACT · PYTHON · AI · SOFTWARE DEVELOPMENT",
