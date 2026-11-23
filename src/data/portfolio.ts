@@ -33,14 +33,18 @@ export interface Achievement {
   tag: string;
 }
 
-export interface SkillCategory {
-  category: string;
+export interface Skill {
+  name: string;
   description: string;
-  skills: {
-    name: string;
-    description: string;
-    tag?: string;
-  }[];
+  tag?: string;
+}
+
+export interface SkillCategory {
+  id: string;
+  category: string;
+  filterLabel: string;
+  description: string;
+  skills: Skill[];
 }
 
 export const PERSONAL_INFO = {
@@ -209,62 +213,98 @@ export const PROJECTS: Project[] = [
 
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    category: "Programming Languages",
-    description: "Core algorithmic foundations and type-safe systems",
+    id: "programming-languages",
+    category: "PROGRAMMING LANGUAGES",
+    filterLabel: "PROGRAMMING LANGUAGES",
+    description: "Core programming foundations and type-safe systems",
     skills: [
-      { name: "Java", description: "OOP, Concurrency, Spring Framework & Enterprise Systems" },
-      { name: "Python", description: "AI/ML, OpenCV, Data Processing & Microservices" },
-      { name: "C++", description: "Algorithms, Memory Mechanics & High-Performance Computing" },
-      { name: "JavaScript", description: "Modern ES6+, Asynchronous Patterns & Web APIs" },
-      { name: "TypeScript", description: "Strict Typing, Interfaces & Production Architecture" },
+      { name: "Java", description: "Object-oriented programming · Backend systems" },
+      { name: "Python", description: "AI/ML · Computer vision · Automation" },
+      { name: "C++", description: "Algorithms · Data structures · Performance" },
+      { name: "JavaScript", description: "Core web scripting · Dynamic web apps" },
+      { name: "TypeScript", description: "Static typing · Scalable architectures" },
     ],
   },
   {
-    category: "Frontend Engineering",
-    description: "High-performance, cinematic, interactive user interfaces",
+    id: "frontend-engineering",
+    category: "FRONTEND ENGINEERING",
+    filterLabel: "FRONTEND ENGINEERING",
+    description: "Responsive interfaces and modern frontend development",
     skills: [
-      { name: "React.js", description: "Hooks, State Architecture, Performance Optimization" },
-      { name: "Next.js", description: "SSR, SSG, Routing & Edge Computing" },
-      { name: "Tailwind CSS", description: "Design Systems, Utility Architecture & Responsive UI" },
+      { name: "React.js", description: "Component-based interface development" },
+      { name: "Next.js", description: "Modern full-stack React framework" },
+      { name: "Tailwind CSS", description: "Utility-first styling" },
     ],
   },
   {
-    category: "Backend Architecture",
-    description: "Robust, scalable, and secure distributed services",
+    id: "backend-architecture",
+    category: "BACKEND ARCHITECTURE",
+    filterLabel: "BACKEND ARCHITECTURE",
+    description: "Server-side systems, backend development and API integration",
     skills: [
-      { name: "Node.js", description: "Event-driven runtime & asynchronous execution" },
-      { name: "Express.js", description: "RESTful API services & middleware pipelines" },
-      { name: "Spring Boot", description: "Enterprise services, dependency injection & REST APIs" },
-      { name: "Flask", description: "Lightweight Python microservices & AI inference endpoints" },
+      { name: "Node.js", description: "JavaScript runtime · Server-side development" },
+      { name: "Express.js", description: "Minimalist web framework for Node.js" },
+      { name: "Spring Boot", description: "Java backend development" },
+      { name: "Flask", description: "Lightweight Python backend microservices" },
+      { name: "REST APIs", description: "API architecture & endpoint integration" },
     ],
   },
   {
-    category: "Databases & Storage",
-    description: "Reliable relational models and flexible document schemas",
+    id: "databases-storage",
+    category: "DATABASES & STORAGE",
+    filterLabel: "DATABASES & STORAGE",
+    description: "Database design, data persistence and storage systems",
     skills: [
-      { name: "MySQL", description: "Relational queries, indexing & ACID compliance" },
-      { name: "PostgreSQL", description: "Advanced joins, JSONB storage & query tuning" },
-      { name: "MongoDB", description: "Document-oriented storage & flexible schemas" },
+      { name: "MySQL", description: "Relational database management" },
+      { name: "PostgreSQL", description: "Structured data · SQL" },
+      { name: "MongoDB", description: "NoSQL document database" },
     ],
   },
   {
-    category: "AI & Computer Vision",
-    description: "Intelligent perception, model inference, and edge automation",
+    id: "ai-computer-vision",
+    category: "AI & COMPUTER VISION",
+    filterLabel: "AI & COMPUTER VISION",
+    description: "AI-powered applications, intelligent systems and computer vision",
     skills: [
-      { name: "Gemini API", description: "Multimodal vision & language reasoning integration" },
-      { name: "YOLOv8", description: "Real-time object detection & bounding-box inference" },
-      { name: "OpenCV", description: "Image processing, contour analysis & video pipeline filtering" },
+      { name: "Gemini API", description: "LLM-powered application integration" },
+      { name: "YOLOv8", description: "Real-time object detection" },
+      { name: "OpenCV", description: "Image processing · Computer vision" },
     ],
   },
   {
-    category: "Developer Tools & Systems",
-    description: "Version control, containerized workflows, and environments",
+    id: "data-analytics",
+    category: "DATA ANALYTICS",
+    filterLabel: "DATA ANALYTICS",
+    description: "Data exploration, analytical insights and visualization",
     skills: [
-      { name: "Git", description: "Branching strategies, history rewriting & code versioning" },
-      { name: "GitHub", description: "Collaborative workflows, CI/CD actions & open source" },
-      { name: "VS Code", description: "Primary IDE with advanced debugging & profiling" },
-      { name: "Linux", description: "Shell scripting, process management & server deployment" },
-      { name: "Selenium", description: "Browser automation, E2E functional testing & scraping" },
+      { name: "SQL", description: "Database querying & data modeling" },
+      { name: "Power BI", description: "Data visualization · Business intelligence" },
+      { name: "Python Data Analysis", description: "Data exploration · NumPy & Pandas" },
+    ],
+  },
+  {
+    id: "developer-tools",
+    category: "DEVELOPER TOOLS",
+    filterLabel: "DEVELOPER TOOLS",
+    description: "Development workflow, source control and engineering tools",
+    skills: [
+      { name: "Git", description: "Version control" },
+      { name: "GitHub", description: "Code collaboration and repositories" },
+      { name: "VS Code", description: "Development environment" },
+      { name: "Linux", description: "Operating systems · Development environment" },
+    ],
+  },
+  {
+    id: "testing-qa",
+    category: "TESTING & QUALITY ASSURANCE",
+    filterLabel: "TESTING & QA",
+    description: "Application testing, software validation and quality assurance",
+    skills: [
+      { name: "Selenium", description: "Browser automation · Web testing" },
+      { name: "Functional Testing", description: "Feature validation & regression" },
+      { name: "API Testing", description: "Endpoint validation & status testing" },
+      { name: "Debugging", description: "Issue diagnosis & defect remediation" },
+      { name: "SDLC / STLC", description: "Software development & testing life cycles" },
     ],
   },
 ];
