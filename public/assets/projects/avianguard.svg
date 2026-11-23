@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <radialGradient id="avGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ff1f2d" stop-opacity="0.2"/>
+      <stop offset="70%" stop-color="#800008" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#07070a" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="radarPattern" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#1d1d28" stroke-width="0.8"/>
+    </pattern>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="500" fill="#07070a"/>
+  <rect width="800" height="500" fill="url(#radarPattern)"/>
+  <circle cx="400" cy="250" r="280" fill="url(#avGlow)"/>
+
+  <!-- Top Status Bar -->
+  <rect x="40" y="30" width="720" height="44" rx="6" fill="#0f0f16" stroke="#22222d"/>
+  <circle cx="65" cy="52" r="5" fill="#ff2a38"/>
+  <text x="85" y="56" fill="#d1d1d6" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="1">AVIANGUARD // ADAPTIVE ACOUSTIC CROP DEFENSE</text>
+  <rect x="580" y="42" width="160" height="20" rx="3" fill="#1e1416" stroke="#e50914" stroke-opacity="0.4"/>
+  <text x="590" y="56" fill="#ff3b47" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1">ESP32 + RASPBERRY PI</text>
+
+  <!-- Central Camera Reticle & Target HUD -->
+  <circle cx="360" cy="260" r="160" stroke="#262635" stroke-width="1.5"/>
+  <circle cx="360" cy="260" r="110" stroke="#e50914" stroke-width="1.2" stroke-opacity="0.4" stroke-dasharray="6 8"/>
+  <line x1="200" y1="260" x2="520" y2="260" stroke="#2a2a38" stroke-width="1"/>
+  <line x1="360" y1="100" x2="360" y2="420" stroke="#2a2a38" stroke-width="1"/>
+
+  <!-- Simulated Bird in Flight (Vector Contour) -->
+  <path d="M 330 220 Q 350 200 370 215 Q 390 190 420 205 Q 380 235 365 240 Q 345 235 330 220 Z" fill="#ff3b47" opacity="0.85"/>
+  <path d="M 310 240 Q 325 225 340 235 Q 355 220 375 230 Q 345 250 335 255 Z" fill="#96000a" opacity="0.7"/>
+
+  <!-- OpenCV Bounding Box with tracking tags -->
+  <rect x="315" y="195" width="120" height="85" rx="3" fill="rgba(229,9,20,0.08)" stroke="#ff2a38" stroke-width="2"/>
+  <line x1="315" y1="205" x2="315" y2="195" stroke="#fff" stroke-width="3"/>
+  <line x1="315" y1="195" x2="325" y2="195" stroke="#fff" stroke-width="3"/>
+  
+  <rect x="315" y="172" width="120" height="20" fill="#e50914"/>
+  <text x="322" y="186" fill="#fff" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">TARGET: CORVID (0.96)</text>
+
+  <!-- Left Telemetry Panel -->
+  <rect x="40" y="95" width="190" height="365" rx="8" fill="#0c0c12" stroke="#22222d"/>
+  <text x="58" y="125" fill="#8e8e93" font-family="'JetBrains Mono', monospace" font-size="10">PIR SENSOR GRID</text>
+  <text x="58" y="150" fill="#f5f5f7" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700">Sector 03: ACTIVE</text>
+  
+  <rect x="58" y="170" width="154" height="70" rx="4" fill="#14141c" stroke="#22222d"/>
+  <text x="68" y="192" fill="#8e8e93" font-family="'JetBrains Mono', monospace" font-size="9">MOTION VECTOR</text>
+  <text x="68" y="212" fill="#ff2a38" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700">dx: +14.2 m/s</text>
+  <text x="68" y="228" fill="#a1a1aa" font-family="'JetBrains Mono', monospace" font-size="9">Bearing: 312° NW</text>
+
+  <rect x="58" y="255" width="154" height="85" rx="4" fill="#14141c" stroke="#22222d"/>
+  <text x="68" y="278" fill="#8e8e93" font-family="'JetBrains Mono', monospace" font-size="9">ACOUSTIC FREQ</text>
+  <text x="68" y="298" fill="#ff3b47" font-family="'JetBrains Mono', monospace" font-size="14" font-weight="700">22.4 kHz</text>
+  <text x="68" y="315" fill="#a1a1aa" font-family="'JetBrains Mono', monospace" font-size="9">Modulation: Swept Sine</text>
+  <text x="68" y="330" fill="#d1d1d6" font-family="'JetBrains Mono', monospace" font-size="9">Zero Habituation Mode</text>
+
+  <rect x="58" y="355" width="154" height="85" rx="4" fill="#14141c" stroke="#22222d"/>
+  <text x="68" y="378" fill="#8e8e93" font-family="'JetBrains Mono', monospace" font-size="9">EDGE TELEMETRY</text>
+  <text x="68" y="398" fill="#30d158" font-family="'JetBrains Mono', monospace" font-size="12" font-weight="600">● ESP32 ONLINE</text>
+  <text x="68" y="415" fill="#a1a1aa" font-family="'JetBrains Mono', monospace" font-size="9">Battery: 94% Solar</text>
+  <text x="68" y="430" fill="#a1a1aa" font-family="'JetBrains Mono', monospace" font-size="9">FPS: 32 on RPi Edge</text>
+
+  <!-- Right Acoustic Pulse Visualizer -->
+  <rect x="570" y="95" width="190" height="365" rx="8" fill="#0c0c12" stroke="#22222d"/>
+  <text x="588" y="125" fill="#8e8e93" font-family="'JetBrains Mono', monospace" font-size="10">DETERRENCE PULSE</text>
+  <text x="588" y="150" fill="#f5f5f7" font-family="'Space Grotesk', sans-serif" font-size="14" font-weight="700">Acoustic Emitter</text>
+  
+  <!-- Waveform representation -->
+  <path d="M 588 230 Q 600 170 615 230 T 645 230 T 675 230 T 705 230 T 735 230" fill="none" stroke="#ff2a38" stroke-width="2"/>
+  <path d="M 588 230 Q 600 200 615 230 T 645 230 T 675 230 T 705 230 T 735 230" fill="none" stroke="#e50914" stroke-width="1" stroke-opacity="0.4"/>
+  <rect x="588" y="270" width="154" height="170" rx="4" fill="#14141c" stroke="#22222d"/>
+  <text x="600" y="295" fill="#8e8e93" font-family="'JetBrains Mono', monospace" font-size="9">ALGORITHM SPEC</text>
+  <text x="600" y="318" fill="#f5f5f7" font-family="'Space Grotesk', sans-serif" font-size="12" font-weight="600">Automated Trigger</text>
+  <text x="600" y="338" fill="#a1a1aa" font-family="'Space Grotesk', sans-serif" font-size="10">1. PIR Wakeup Interrupt</text>
+  <text x="600" y="358" fill="#a1a1aa" font-family="'Space Grotesk', sans-serif" font-size="10">2. OpenCV Contour Check</text>
+  <text x="600" y="378" fill="#a1a1aa" font-family="'Space Grotesk', sans-serif" font-size="10">3. Acoustic Wave Burst</text>
+  <text x="600" y="398" fill="#a1a1aa" font-family="'Space Grotesk', sans-serif" font-size="10">4. Telemetry Log Synced</text>
+  <text x="600" y="424" fill="#ff3b47" font-family="'JetBrains Mono', monospace" font-size="9">EFFICIENCY: 99.2%</text>
+</svg>

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <radialGradient id="ndGlow" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#ff1f2d" stop-opacity="0.2"/>
+      <stop offset="60%" stop-color="#96000a" stop-opacity="0.05"/>
+      <stop offset="100%" stop-color="#07070a" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="diagGrid" width="24" height="24" patternUnits="userSpaceOnUse">
+      <path d="M 0 24 L 24 0 M 0 0 L 24 24" fill="none" stroke="#1a1a24" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="#07070a"/>
+  <rect width="800" height="500" fill="url(#diagGrid)"/>
+  <circle cx="400" cy="250" r="300" fill="url(#ndGlow)"/>
+
+  <!-- Top Bar -->
+  <rect x="40" y="30" width="720" height="44" rx="6" fill="#0f0f16" stroke="#22222d"/>
+  <circle cx="65" cy="52" r="5" fill="#ff2a38"/>
+  <text x="85" y="56" fill="#d1d1d6" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="1">NUTRIDAIRY (CATTLEFEEDAI) // FEED QUALITY ASSESSMENT</text>
+  <rect x="570" y="42" width="170" height="20" rx="3" fill="#1e1416" stroke="#e50914" stroke-opacity="0.4"/>
+  <text x="580" y="56" fill="#ff3b47" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1">SPRING BOOT + FLASK CV</text>
+
+  <!-- Left: Computer Vision Silage Inspector -->
+  <rect x="40" y="95" width="450" height="365" rx="8" fill="#0c0c12" stroke="#22222d"/>
+  
+  <!-- Simulated Silage Texture Canvas with Spectral Grid -->
+  <rect x="65" y="120" width="400" height="200" rx="6" fill="#13131b" stroke="#262635"/>
+  <!-- Texture blobs representing feed grain and silage -->
+  <ellipse cx="140" cy="180" rx="45" ry="35" fill="#302015" opacity="0.8"/>
+  <ellipse cx="230" cy="210" rx="60" ry="40" fill="#402810" opacity="0.85"/>
+  <ellipse cx="330" cy="170" rx="55" ry="35" fill="#251a10" opacity="0.9"/>
+  <ellipse cx="280" cy="240" rx="40" ry="28" fill="#3a2512" opacity="0.8"/>
+
+  <!-- Color Heatmap Analysis Grid / Detection Overlay -->
+  <rect x="200" y="150" width="120" height="110" rx="4" fill="rgba(229,9,20,0.12)" stroke="#ff2a38" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <circle cx="260" cy="205" r="4" fill="#ff2a38"/>
+  <line x1="260" y1="205" x2="350" y2="150" stroke="#ff2a38" stroke-width="1.2"/>
+  <rect x="350" y="135" width="105" height="32" rx="3" fill="#1b0c0f" stroke="#e50914"/>
+  <text x="358" y="148" fill="#ff858d" font-family="'JetBrains Mono', monospace" font-size="9">TEXTURE DEFECT</text>
+  <text x="358" y="161" fill="#fff" font-family="'JetBrains Mono', monospace" font-size="11" font-weight="700">Low Moisture (11%)</text>
+
+  <!-- Bottom Diagnostic Telemetry inside Left Box -->
+  <g transform="translate(65, 340)">
+    <rect width="120" height="100" rx="6" fill="#14141c" stroke="#22222d"/>
+    <text x="14" y="24" fill="#8e8e93" font-family="'JetBrains Mono', monospace" font-size="9">QUALITY INDEX</text>
+    <text x="14" y="52" fill="#30d158" font-family="'Space Grotesk', sans-serif" font-size="24" font-weight="700">88.5</text>
+    <text x="14" y="70" fill="#a1a1aa" font-family="'JetBrains Mono', monospace" font-size="9">Grade A-Silage</text>
+    <text x="14" y="86" fill="#ff3b47" font-family="'JetBrains Mono', monospace" font-size="9">pH 4.1 Optimal</text>
+  </g>
+  <g transform="translate(205, 340)">
+    <rect width="120" height="100" rx="6" fill="#14141c" stroke="#22222d"/>
+    <text x="14" y="24" fill="#8e8e93" font-family="'JetBrains Mono', monospace" font-size="9">SPOILAGE RISK</text>
+    <text x="14" y="52" fill="#ff2a38" font-family="'Space Grotesk', sans-serif" font-size="24" font-weight="700">LOW</text>
+    <text x="14" y="70" fill="#a1a1aa" font-family="'JetBrains Mono', monospace" font-size="9">Aflatoxin safe</text>
+    <text x="14" y="86" fill="#30d158" font-family="'JetBrains Mono', monospace" font-size="9">NDF 42% Target</text>
+  </g>
+  <g transform="translate(345, 340)">
+    <rect width="120" height="100" rx="6" fill="#14141c" stroke="#22222d"/>
+    <text x="14" y="24" fill="#8e8e93" font-family="'JetBrains Mono', monospace" font-size="9">IOT GATEWAY</text>
+    <text x="14" y="48" fill="#f5f5f7" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="600">CONNECTED</text>
+    <text x="14" y="70" fill="#a1a1aa" font-family="'JetBrains Mono', monospace" font-size="9">Silo 04 Sensor</text>
+    <text x="14" y="86" fill="#ff3b47" font-family="'JetBrains Mono', monospace" font-size="9">Temp 23.4°C</text>
+  </g>
+
+  <!-- Right: Spring Security & Backend Architecture Stack -->
+  <rect x="510" y="95" width="250" height="365" rx="8" fill="#0c0c12" stroke="#22222d"/>
+  <text x="530" y="125" fill="#8e8e93" font-family="'JetBrains Mono', monospace" font-size="10">SPRING ENTERPRISE CORE</text>
+  <text x="530" y="150" fill="#f5f5f7" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700">Security &amp; Pipeline</text>
+
+  <rect x="530" y="170" width="210" height="50" rx="4" fill="#14141c" stroke="#22222d"/>
+  <text x="542" y="190" fill="#ff3b47" font-family="'JetBrains Mono', monospace" font-size="10">ROLE-BASED AUTH</text>
+  <text x="542" y="208" fill="#d1d1d6" font-family="'Space Grotesk', sans-serif" font-size="12">Spring Security JWT Guard</text>
+
+  <rect x="530" y="230" width="210" height="50" rx="4" fill="#14141c" stroke="#22222d"/>
+  <text x="542" y="250" fill="#ff3b47" font-family="'JetBrains Mono', monospace" font-size="10">CV INFERENCE FLASK API</text>
+  <text x="542" y="268" fill="#d1d1d6" font-family="'Space Grotesk', sans-serif" font-size="12">Microservice RPC &lt; 200ms</text>
+
+  <rect x="530" y="290" width="210" height="50" rx="4" fill="#14141c" stroke="#22222d"/>
+  <text x="542" y="310" fill="#ff3b47" font-family="'JetBrains Mono', monospace" font-size="10">TELEMETRY DISPATCH</text>
+  <text x="542" y="328" fill="#d1d1d6" font-family="'Space Grotesk', sans-serif" font-size="12">Automated Alert Broker</text>
+
+  <rect x="530" y="350" width="210" height="90" rx="4" fill="#160d10" stroke="#e50914" stroke-opacity="0.3"/>
+  <text x="542" y="375" fill="#ff858d" font-family="'JetBrains Mono', monospace" font-size="9">ALERT CONDITIONAL</text>
+  <text x="542" y="395" fill="#f5f5f7" font-family="'Space Grotesk', sans-serif" font-size="13" font-weight="600">Threshold Monitoring</text>
+  <text x="542" y="415" fill="#a1a1aa" font-family="'JetBrains Mono', monospace" font-size="10">Push Notification on Temp &gt; 35°C</text>
+  <text x="542" y="430" fill="#30d158" font-family="'JetBrains Mono', monospace" font-size="10">System Status: NOMINAL</text>
+</svg>

@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" fill="none">
+  <defs>
+    <radialGradient id="qmGlow" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#ff1f2d" stop-opacity="0.18"/>
+      <stop offset="60%" stop-color="#96000a" stop-opacity="0.04"/>
+      <stop offset="100%" stop-color="#07070a" stop-opacity="0"/>
+    </radialGradient>
+    <pattern id="matrixPattern" width="30" height="30" patternUnits="userSpaceOnUse">
+      <path d="M 0 15 L 30 15 M 15 0 L 15 30" fill="none" stroke="#161622" stroke-width="0.6"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="#07070a"/>
+  <rect width="800" height="500" fill="url(#matrixPattern)"/>
+  <circle cx="400" cy="250" r="300" fill="url(#qmGlow)"/>
+
+  <!-- Top Bar -->
+  <rect x="40" y="30" width="720" height="44" rx="6" fill="#0f0f16" stroke="#22222d"/>
+  <circle cx="65" cy="52" r="5" fill="#ff2a38"/>
+  <text x="85" y="56" fill="#d1d1d6" font-family="'JetBrains Mono', monospace" font-size="12" letter-spacing="1">QUIZ MANAGEMENT ARCHITECTURE // REST API ENGINE</text>
+  <rect x="580" y="42" width="160" height="20" rx="3" fill="#1e1416" stroke="#e50914" stroke-opacity="0.4"/>
+  <text x="590" y="56" fill="#ff3b47" font-family="'JetBrains Mono', monospace" font-size="10" letter-spacing="1">JAVA · SPRING · MYSQL</text>
+
+  <!-- Left: REST API Endpoints & Request Pipeline -->
+  <rect x="40" y="95" width="380" height="365" rx="8" fill="#0c0c12" stroke="#22222d"/>
+  <text x="65" y="125" fill="#8e8e93" font-family="'JetBrains Mono', monospace" font-size="10">API ROUTING &amp; DISPATCH</text>
+  <text x="65" y="150" fill="#f5f5f7" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700">REST Controller Layer</text>
+
+  <!-- Endpoints list -->
+  <g transform="translate(65, 170)">
+    <rect width="330" height="40" rx="4" fill="#14141c" stroke="#22222d"/>
+    <rect x="10" y="10" width="45" height="20" rx="2" fill="#30d158" opacity="0.2"/>
+    <text x="18" y="24" fill="#30d158" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">GET</text>
+    <text x="65" y="24" fill="#f5f5f7" font-family="'JetBrains Mono', monospace" font-size="11">/api/v1/quiz/category/{id}</text>
+  </g>
+  <g transform="translate(65, 220)">
+    <rect width="330" height="40" rx="4" fill="#14141c" stroke="#22222d"/>
+    <rect x="10" y="10" width="45" height="20" rx="2" fill="#0a84ff" opacity="0.2"/>
+    <text x="14" y="24" fill="#0a84ff" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">POST</text>
+    <text x="65" y="24" fill="#f5f5f7" font-family="'JetBrains Mono', monospace" font-size="11">/api/v1/quiz/create?numQ=10</text>
+  </g>
+  <g transform="translate(65, 270)">
+    <rect width="330" height="40" rx="4" fill="#14141c" stroke="#22222d"/>
+    <rect x="10" y="10" width="45" height="20" rx="2" fill="#ff9f0a" opacity="0.2"/>
+    <text x="14" y="24" fill="#ff9f0a" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">POST</text>
+    <text x="65" y="24" fill="#f5f5f7" font-family="'JetBrains Mono', monospace" font-size="11">/api/v1/quiz/submit/{id}</text>
+  </g>
+  <g transform="translate(65, 320)">
+    <rect width="330" height="40" rx="4" fill="#14141c" stroke="#22222d"/>
+    <rect x="10" y="10" width="45" height="20" rx="2" fill="#ff453a" opacity="0.2"/>
+    <text x="12" y="24" fill="#ff453a" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">DELETE</text>
+    <text x="65" y="24" fill="#f5f5f7" font-family="'JetBrains Mono', monospace" font-size="11">/api/v1/question/{qid}</text>
+  </g>
+
+  <!-- Code snippet badge -->
+  <rect x="65" y="375" width="330" height="65" rx="4" fill="#101018" stroke="#1f1f2d"/>
+  <text x="75" y="398" fill="#8e8e93" font-family="'JetBrains Mono', monospace" font-size="10">// Response payload: HTTP 200 OK</text>
+  <text x="75" y="415" fill="#ff3b47" font-family="'JetBrains Mono', monospace" font-size="10">{ "score": 9, "status": "COMPLETED", "timeTaken": "04:32" }</text>
+  <text x="75" y="430" fill="#30d158" font-family="'JetBrains Mono', monospace" font-size="10">Benchmark: 24ms p99 latency</text>
+
+  <!-- Right: MySQL Relational Schema Topology -->
+  <rect x="440" y="95" width="320" height="365" rx="8" fill="#0c0c12" stroke="#22222d"/>
+  <text x="460" y="125" fill="#8e8e93" font-family="'JetBrains Mono', monospace" font-size="10">DATABASE ENTITY TOPOLOGY</text>
+  <text x="460" y="150" fill="#f5f5f7" font-family="'Space Grotesk', sans-serif" font-size="16" font-weight="700">MySQL Schema Model</text>
+
+  <!-- Entity 1: Quiz -->
+  <g transform="translate(460, 170)">
+    <rect width="130" height="100" rx="4" fill="#14141c" stroke="#ff2a38" stroke-width="1.2"/>
+    <rect width="130" height="25" rx="4" fill="#241316"/>
+    <text x="10" y="17" fill="#ff858d" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">table: quiz</text>
+    <text x="10" y="42" fill="#ff3b47" font-family="'JetBrains Mono', monospace" font-size="9">id [PK, INT]</text>
+    <text x="10" y="60" fill="#d1d1d6" font-family="'JetBrains Mono', monospace" font-size="9">title [VARCHAR]</text>
+    <text x="10" y="78" fill="#d1d1d6" font-family="'JetBrains Mono', monospace" font-size="9">category [VARCHAR]</text>
+  </g>
+
+  <!-- Connector Line -->
+  <path d="M 590 220 L 630 220" stroke="#ff2a38" stroke-width="1.5" stroke-dasharray="3 3"/>
+  
+  <!-- Entity 2: Questions Mapping -->
+  <g transform="translate(630, 170)">
+    <rect width="120" height="100" rx="4" fill="#14141c" stroke="#262635"/>
+    <rect width="120" height="25" rx="4" fill="#1b1b26"/>
+    <text x="10" y="17" fill="#d1d1d6" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">quiz_questions</text>
+    <text x="10" y="42" fill="#d1d1d6" font-family="'JetBrains Mono', monospace" font-size="9">quiz_id [FK]</text>
+    <text x="10" y="60" fill="#d1d1d6" font-family="'JetBrains Mono', monospace" font-size="9">question_id [FK]</text>
+    <text x="10" y="78" fill="#a1a1aa" font-family="'JetBrains Mono', monospace" font-size="9">order_index</text>
+  </g>
+
+  <!-- Entity 3: Question Entity Details -->
+  <g transform="translate(460, 290)">
+    <rect width="290" height="150" rx="4" fill="#14141c" stroke="#262635"/>
+    <rect width="290" height="25" rx="4" fill="#1b1b26"/>
+    <text x="10" y="17" fill="#d1d1d6" font-family="'JetBrains Mono', monospace" font-size="10" font-weight="700">table: question (Question Bank Bank)</text>
+    <text x="10" y="45" fill="#ff3b47" font-family="'JetBrains Mono', monospace" font-size="9">id [PK, INT Auto-inc]</text>
+    <text x="10" y="65" fill="#d1d1d6" font-family="'JetBrains Mono', monospace" font-size="9">question_title [TEXT]</text>
+    <text x="10" y="85" fill="#d1d1d6" font-family="'JetBrains Mono', monospace" font-size="9">option_a, option_b, option_c, option_d</text>
+    <text x="10" y="105" fill="#30d158" font-family="'JetBrains Mono', monospace" font-size="9">correct_answer [VARCHAR]</text>
+    <text x="10" y="125" fill="#a1a1aa" font-family="'JetBrains Mono', monospace" font-size="9">difficulty_level [ENUM 'EASY','MED','HARD']</text>
+  </g>
+</svg>
