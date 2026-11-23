@@ -34,7 +34,7 @@ export default function Hero() {
           </div>
 
           {/* Name Dominating Composition */}
-          <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-[5.75rem] font-black tracking-tight text-white leading-[0.95] mb-4">
+          <h1 className="font-display font-black tracking-tight text-white leading-[0.95] mb-4 text-[clamp(2.25rem,6.8vw,3.75rem)] sm:text-[clamp(3rem,6.5vw,4.5rem)] lg:text-[clamp(3.6rem,4.3vw,5.25rem)] xl:text-[5.25rem] whitespace-nowrap">
             SRIHARI <span className="text-crimson text-glow-crimson">S.</span>
           </h1>
 
