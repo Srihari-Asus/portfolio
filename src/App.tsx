@@ -3,8 +3,7 @@ import Loader from './components/Loader';
 import CustomCursor from './components/CustomCursor';
 import ParticleField from './components/three/ParticleField';
 import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import About from './components/About';
+import HeroAbout from './components/HeroAbout';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
 import Experience from './components/Experience';
@@ -42,8 +41,7 @@ export default function App() {
 
       {/* Main Single-Page Content Sections */}
       <main className="relative z-10 flex flex-col w-full">
-        <Hero />
-        <About />
+        <HeroAbout />
         <Skills />
         <Projects />
         <Experience />

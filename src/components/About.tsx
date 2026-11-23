@@ -121,18 +121,18 @@ export default function About() {
       />
 
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
-        
+
         {/* Main Two-Column Scroll-Driven Layout with Parent Boundary for Sticky */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start relative">
-          
+
           {/* ======================================================== */}
           {/* LEFT COLUMN: STICKY CINEMATIC PORTRAIT FRAME             */}
           {/* Constrained strictly to the height of this About section */}
           {/* ======================================================== */}
           <div className="lg:col-span-5 lg:sticky lg:top-28 self-start z-20 flex flex-col items-center">
-            
+
             <div className="relative w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px] aspect-[4/5] group">
-              
+
               {/* Dynamic Scroll-Responsive Ambient Crimson Glow */}
               <div
                 ref={glowRef}
@@ -152,7 +152,7 @@ export default function About() {
 
               {/* Portrait Frame Container */}
               <div className="relative w-full h-full rounded-[28px] overflow-hidden border border-crimson/30 hover:border-crimson/60 bg-gradient-to-b from-void-900 via-void-950 to-void-950 shadow-[0_20px_50px_rgba(0,0,0,0.85)] group-hover:shadow-[0_25px_60px_rgba(229,9,20,0.25)] transition-all duration-500 ease-out flex items-center justify-center">
-                
+
                 {/* Portrait Image */}
                 <img
                   src="/assets/profile/portrait.png"
@@ -197,12 +197,12 @@ export default function About() {
           {/* RIGHT COLUMN: PROGRESSIVE SCROLL-DRIVEN CONTENT BLOCKS   */}
           {/* ======================================================== */}
           <div className="lg:col-span-7 space-y-24 sm:space-y-32">
-            
+
             {/* ------------------------------------------------------ */}
             {/* SECTION 01 — PROFILE                                   */}
             {/* ------------------------------------------------------ */}
             <div className="about-scroll-block space-y-8 pt-2">
-              
+
               {/* Header Badge */}
               <div className="flex items-center gap-2.5 font-mono text-xs text-crimson tracking-widest uppercase font-semibold">
                 <span>01</span>
@@ -245,7 +245,7 @@ export default function About() {
             {/* SECTION 02 — EDUCATION                                 */}
             {/* ------------------------------------------------------ */}
             <div className="about-scroll-block space-y-6">
-              
+
               {/* Header Badge */}
               <div className="flex items-center gap-2.5 font-mono text-xs text-crimson tracking-widest uppercase font-semibold">
                 <span>02</span>
@@ -256,7 +256,7 @@ export default function About() {
               {/* Compact Premium Education Card */}
               <div className="p-6 sm:p-8 rounded-2xl bg-gradient-to-b from-void-900 via-void-900/90 to-void-950 border border-void-800 hover:border-crimson/50 transition-all duration-300 shadow-[0_10px_30px_rgba(0,0,0,0.5)] relative overflow-hidden group">
                 <div className="absolute top-0 right-0 w-36 h-36 bg-crimson/10 rounded-full blur-3xl pointer-events-none group-hover:bg-crimson/20 transition-all duration-500" />
-                
+
                 <div className="flex items-start justify-between gap-4 mb-6">
                   <div className="flex items-center gap-3.5">
                     <div className="p-3 rounded-xl bg-crimson/15 border border-crimson/30 text-crimson group-hover:scale-105 transition-transform duration-300 flex-shrink-0">
@@ -308,7 +308,7 @@ export default function About() {
             {/* SECTION 03 — WHAT I DO                                 */}
             {/* ------------------------------------------------------ */}
             <div className="about-scroll-block space-y-6">
-              
+
               {/* Header Badge */}
               <div className="flex items-center justify-between pb-2 border-b border-void-800/80">
                 <div className="flex items-center gap-2.5 font-mono text-xs text-crimson tracking-widest uppercase font-semibold">
@@ -376,7 +376,7 @@ export default function About() {
             {/* SECTION 04 — ENGINEERING INTERESTS                     */}
             {/* ------------------------------------------------------ */}
             <div className="about-scroll-block space-y-6">
-              
+
               {/* Header Badge */}
               <div className="flex items-center justify-between pb-2 border-b border-void-800/80">
                 <div className="flex items-center gap-2.5 font-mono text-xs text-crimson tracking-widest uppercase font-semibold">
