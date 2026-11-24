@@ -12,17 +12,21 @@ export default function Navbar() {
       setIsScrolled(window.scrollY > 30);
 
       // Determine active section based on scroll offset
-      const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'achievements', 'contact'];
-      const scrollPos = window.scrollY + 200;
+      if (window.scrollY < 300) {
+        setActiveSection('hero');
+      } else {
+        const sections = ['hero', 'about', 'skills', 'projects', 'experience', 'achievements', 'contact'];
+        const scrollPos = window.scrollY + 200;
 
-      for (const sectionId of sections) {
-        const el = document.getElementById(sectionId);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveSection(sectionId);
-            break;
+        for (const sectionId of sections) {
+          const el = document.getElementById(sectionId);
+          if (el) {
+            const top = el.offsetTop;
+            const height = el.offsetHeight;
+            if (scrollPos >= top && scrollPos < top + height) {
+              setActiveSection(sectionId);
+              break;
+            }
           }
         }
       }
@@ -48,6 +52,10 @@ export default function Navbar() {
     e.preventDefault();
     setMobileMenuOpen(false);
     const targetId = href.replace('#', '');
+    if (targetId === 'hero') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: 'smooth' });

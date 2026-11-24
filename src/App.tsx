@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Loader from './components/Loader';
 import CustomCursor from './components/CustomCursor';
-import ParticleField from './components/three/ParticleField';
+import CrimsonParticles from './components/CrimsonParticles';
 import Navbar from './components/Navbar';
 import HeroAbout from './components/HeroAbout';
 import Skills from './components/Skills';
@@ -33,8 +33,8 @@ export default function App() {
       {/* Interactive Custom Cursor for Pointer Devices */}
       <CustomCursor />
 
-      {/* Ambient Particle Field running subtly in background */}
-      <ParticleField />
+      {/* Global Cinematic Floating Crimson Particles */}
+      <CrimsonParticles />
 
       {/* Main Navigation */}
       <Navbar />

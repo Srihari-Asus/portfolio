@@ -302,108 +302,25 @@ export default function HeroAbout() {
       <div className="absolute inset-0 cinematic-grid opacity-30 pointer-events-none -z-10" />
 
       {/* ================================================================ */}
-      {/* SECTION 1: HERO SECTION                                         */}
+      {/* 1. THE SINGLE PORTRAIT DOM INSTANCE                             */}
+      {/* Mobile (<lg): Renders FIRST at the very top of Hero              */}
+      {/* Desktop (lg+): Absolute & Sticky, travels Right -> Left          */}
       {/* ================================================================ */}
-      <section
-        id="hero"
-        ref={heroRef}
-        className="relative min-h-screen w-full flex items-center justify-center pt-24 sm:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 overflow-visible"
-      >
-        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center z-10">
-          
-          {/* Left Column: Text & CTA */}
-          <div
-            ref={heroTextRef}
-            className="lg:col-span-7 flex flex-col justify-center text-left"
-          >
-            {/* Small Introduction */}
-            <div className="inline-flex items-center gap-2.5 sm:gap-3 px-3 py-1.5 rounded-full bg-void-900 border border-void-700/80 w-fit mb-5 sm:mb-6 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-crimson animate-pulse" />
-              <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.40em] sm:tracking-[0.50em] text-silver-muted font-medium">
-                HELLO, I'M
-              </span>
-            </div>
-
-            {/* Name Dominating Composition - Fully Responsive clamp font */}
-            <h1 className="font-display font-black tracking-tight text-white leading-[0.95] mb-3 sm:mb-4 text-[clamp(2.1rem,9vw,3.6rem)] sm:text-[clamp(3rem,6.8vw,4.5rem)] lg:text-[clamp(3.6rem,4.3vw,5.25rem)] xl:text-[5.25rem]">
-              SRIHARI <span className="text-crimson text-glow-crimson">S</span>
-            </h1>
-
-            {/* Main Title */}
-            <div className="flex items-center gap-3 mb-5 sm:mb-6">
-              <div className="h-[2px] w-6 sm:w-8 bg-crimson flex-shrink-0" />
-              <h2 className="font-mono text-base sm:text-xl lg:text-2xl font-bold tracking-wider text-crimson-accent uppercase">
-                {PERSONAL_INFO.tagline}
-              </h2>
-            </div>
-
-            {/* Supporting Text */}
-            <p className="font-sans text-sm sm:text-lg lg:text-xl text-silver-light/90 max-w-2xl leading-relaxed mb-6 sm:mb-8 font-light">
-              {PERSONAL_INFO.heroDescription}
-            </p>
-
-            {/* Action Buttons - Stacked on tiny screens, inline on sm+ */}
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-8 sm:mb-10 w-full sm:w-auto">
-              <button
-                type="button"
-                onClick={scrollToProjects}
-                className="group relative inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-sm bg-crimson hover:bg-crimson-glow border border-crimson/60 hover:border-crimson-glow/60 text-white font-mono text-xs sm:text-sm font-semibold tracking-wider transition-all duration-300 ease-out shadow-[0_4px_16px_rgba(229,9,20,0.25)] hover:shadow-[0_0_35px_rgba(229,9,20,0.6),0_0_15px_rgba(255,42,56,0.4)] active:scale-[0.98] min-h-[44px]"
-              >
-                <span>EXPLORE PROJECTS</span>
-                <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-200" />
-              </button>
-
-              <button
-                type="button"
-                onClick={scrollToContact}
-                className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-sm bg-void-900/80 hover:bg-void-800 border border-void-600 hover:border-silver-muted text-silver-light hover:text-white font-mono text-xs sm:text-sm tracking-wider transition-all duration-300 active:scale-95 min-h-[44px]"
-              >
-                <MessageSquare className="w-4 h-4 text-crimson" />
-                <span>LET'S CONNECT</span>
-              </button>
-            </div>
-
-            {/* Secondary Information Bar */}
-            <div className="pt-4 sm:pt-6 border-t border-void-800/80 flex items-center gap-2.5 sm:gap-3">
-              <Terminal className="w-4 h-4 text-crimson flex-shrink-0" />
-              <p className="font-mono text-[11px] sm:text-xs tracking-wider text-silver-muted uppercase leading-snug">
-                {PERSONAL_INFO.secondaryInfo}
-              </p>
-            </div>
-          </div>
-
-          {/* Right Column: Hero Spacer Slot (Desktop only - marks initial target) */}
-          <div className="hidden lg:flex lg:col-span-5 relative items-center justify-center lg:justify-end mt-8 lg:mt-0">
-            <div
-              ref={heroSlotRef}
-              className="w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px] aspect-[4/5] invisible pointer-events-none"
-              aria-hidden="true"
-            />
-          </div>
-
-        </div>
-      </section>
-
-      {/* ================================================================ */}
-      {/* THE SINGLE PORTRAIT DOM INSTANCE                                */}
-      {/* Desktop (lg+): Sticky traveling frame transitioning Right -> Left */}
-      {/* Mobile (<lg): Clean natural flow between Hero & About           */}
-      {/* ================================================================ */}
-      <div className="relative lg:absolute lg:inset-0 pointer-events-none z-20 overflow-visible">
+      <div className="relative lg:absolute lg:inset-0 pointer-events-none z-20 overflow-visible pt-20 sm:pt-24 lg:pt-0 pb-4 sm:pb-6 lg:pb-0">
         <div className="lg:sticky lg:top-28 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pointer-events-none">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
             
             {/* The Animated Portrait Frame */}
             <div
               ref={portraitWrapperRef}
-              className="lg:col-span-5 pointer-events-auto flex flex-col items-center mx-auto lg:mx-0 w-full max-w-[280px] xs:max-w-[320px] sm:max-w-[360px] lg:max-w-[420px] my-6 sm:my-8 lg:my-0"
+              className="lg:col-span-5 pointer-events-auto flex flex-col items-center mx-auto lg:mx-0 w-full max-w-[220px] xs:max-w-[250px] sm:max-w-[290px] lg:max-w-[420px]"
             >
               <div className="relative w-full aspect-[4/5] group">
 
                 {/* Ambient Subtle Crimson Glow Behind the Portrait Frame */}
                 <div
                   ref={glowRef}
-                  className="absolute -inset-4 sm:-inset-6 rounded-[36px] bg-gradient-to-tr from-crimson/25 via-crimson-dark/20 to-transparent blur-[40px] sm:blur-[50px] pointer-events-none -z-10 group-hover:bg-crimson/35 group-hover:blur-[55px] transition-all duration-700 ease-out"
+                  className="absolute -inset-4 sm:-inset-6 rounded-[36px] bg-gradient-to-tr from-crimson/25 via-crimson-dark/20 to-transparent blur-[35px] sm:blur-[50px] pointer-events-none -z-10 group-hover:bg-crimson/35 group-hover:blur-[55px] transition-all duration-700 ease-out"
                   aria-hidden="true"
                 />
                 <div
@@ -418,7 +335,7 @@ export default function HeroAbout() {
                 </div>
 
                 {/* Premium Rounded Portrait Frame Container */}
-                <div className="relative w-full h-full rounded-[24px] sm:rounded-[28px] overflow-hidden border border-crimson/30 hover:border-crimson/60 bg-gradient-to-b from-void-900 via-void-950 to-void-950 shadow-[0_15px_35px_rgba(0,0,0,0.85)] group-hover:shadow-[0_25px_60px_rgba(229,9,20,0.25)] transition-all duration-500 ease-out flex items-center justify-center">
+                <div className="relative w-full h-full rounded-[22px] sm:rounded-[28px] overflow-hidden border border-crimson/35 hover:border-crimson/60 bg-gradient-to-b from-void-900 via-void-950 to-void-950 shadow-[0_15px_35px_rgba(0,0,0,0.85)] group-hover:shadow-[0_25px_60px_rgba(229,9,20,0.25)] transition-all duration-500 ease-out flex items-center justify-center">
 
                   {/* EXACTLY ONE PORTRAIT IMAGE INSTANCE IN THE DOM */}
                   <img
@@ -431,13 +348,13 @@ export default function HeroAbout() {
 
                   {/* Gentle Bottom Gradient Fade into Dark Void */}
                   <div
-                    className="absolute inset-x-0 bottom-0 h-24 sm:h-32 bg-gradient-to-t from-void-950 via-void-950/70 to-transparent pointer-events-none z-10"
+                    className="absolute inset-x-0 bottom-0 h-20 sm:h-32 bg-gradient-to-t from-void-950 via-void-950/70 to-transparent pointer-events-none z-10"
                     aria-hidden="true"
                   />
 
                   {/* Ultra-subtle Inner Border Highlight */}
                   <div
-                    className="absolute inset-0 rounded-[24px] sm:rounded-[28px] border border-white/5 pointer-events-none z-20"
+                    className="absolute inset-0 rounded-[22px] sm:rounded-[28px] border border-white/5 pointer-events-none z-20"
                     aria-hidden="true"
                   />
 
@@ -463,6 +380,96 @@ export default function HeroAbout() {
           </div>
         </div>
       </div>
+
+      {/* ================================================================ */}
+      {/* SECTION 1: HERO SECTION                                         */}
+      {/* ================================================================ */}
+      <section
+        id="hero"
+        ref={heroRef}
+        className="relative min-h-[auto] lg:min-h-screen w-full flex items-center justify-center pt-2 sm:pt-4 lg:pt-28 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 overflow-visible"
+      >
+        <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-center z-10">
+          
+          {/* Left Column: Text & CTA */}
+          <div
+            ref={heroTextRef}
+            className="lg:col-span-7 flex flex-col justify-center items-center lg:items-start text-center lg:text-left"
+          >
+            {/* 2. Small Introduction Label */}
+            <div className="inline-flex items-center gap-2.5 sm:gap-3 px-3 py-1.5 rounded-full bg-void-900 border border-void-700/80 w-fit mb-4 sm:mb-6 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-crimson animate-pulse" />
+              <span className="font-mono text-[10px] sm:text-xs uppercase tracking-[0.40em] sm:tracking-[0.50em] text-silver-muted font-medium">
+                HELLO, I'M
+              </span>
+            </div>
+
+            {/* 3. Name Dominating Composition - Fully Responsive clamp font */}
+            <h1 className="font-display font-black tracking-tight text-white leading-[0.95] mb-3 sm:mb-4 text-[clamp(2.1rem,9vw,3.6rem)] sm:text-[clamp(3rem,6.8vw,4.5rem)] lg:text-[clamp(3.6rem,4.3vw,5.25rem)] xl:text-[5.25rem]">
+              SRIHARI <span className="text-crimson text-glow-crimson">S</span>
+            </h1>
+
+            {/* 4. Main Title */}
+            <div className="flex items-center justify-center lg:justify-start gap-3 mb-5 sm:mb-6">
+              <div className="h-[2px] w-6 sm:w-8 bg-crimson flex-shrink-0" />
+              <h2 className="font-mono text-base sm:text-xl lg:text-2xl font-bold tracking-wider text-crimson-accent uppercase">
+                {PERSONAL_INFO.tagline}
+              </h2>
+            </div>
+
+            {/* 5. Supporting Text */}
+            <p className="font-sans text-sm sm:text-lg lg:text-xl text-silver-light/90 max-w-2xl leading-relaxed mb-6 sm:mb-8 font-light mx-auto lg:mx-0">
+              {PERSONAL_INFO.heroDescription}
+            </p>
+
+            {/* 6. Action Buttons - Stacked on tiny screens, inline on sm+ */}
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-center lg:justify-start gap-3 sm:gap-4 mb-6 sm:mb-8 w-full sm:w-auto">
+              <button
+                type="button"
+                onClick={scrollToProjects}
+                className="group relative inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-sm bg-crimson hover:bg-crimson-glow border border-crimson/60 hover:border-crimson-glow/60 text-white font-mono text-xs sm:text-sm font-semibold tracking-wider transition-all duration-300 ease-out shadow-[0_4px_16px_rgba(229,9,20,0.25)] hover:shadow-[0_0_35px_rgba(229,9,20,0.6),0_0_15px_rgba(255,42,56,0.4)] active:scale-[0.98] min-h-[44px]"
+              >
+                <span>EXPLORE PROJECTS</span>
+                <ArrowDown className="w-4 h-4 group-hover:translate-y-1 transition-transform duration-200" />
+              </button>
+
+              <button
+                type="button"
+                onClick={scrollToContact}
+                className="inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3.5 rounded-sm bg-void-900/80 hover:bg-void-800 border border-void-600 hover:border-silver-muted text-silver-light hover:text-white font-mono text-xs sm:text-sm tracking-wider transition-all duration-300 active:scale-95 min-h-[44px]"
+              >
+                <MessageSquare className="w-4 h-4 text-crimson" />
+                <span>LET'S CONNECT</span>
+              </button>
+            </div>
+
+            {/* 7. Technology Highlights Bar */}
+            <div className="w-full pt-4 sm:pt-6 border-t border-void-800/80 flex items-center justify-center lg:justify-start gap-2.5 sm:gap-3">
+              <Terminal className="w-4 h-4 text-crimson flex-shrink-0" />
+              <p className="font-mono text-[11px] sm:text-xs tracking-wider text-silver-muted uppercase leading-snug">
+                {PERSONAL_INFO.secondaryInfo}
+              </p>
+            </div>
+
+            {/* 8. Scroll to Explore Indicator */}
+            <div className="pt-6 sm:pt-8 flex items-center justify-center lg:justify-start gap-2 text-silver-muted font-mono text-[11px] sm:text-xs uppercase tracking-widest select-none">
+              <span className="w-1.5 h-1.5 rounded-full bg-crimson animate-pulse" />
+              <span>SCROLL TO EXPLORE</span>
+              <ArrowDown className="w-3.5 h-3.5 text-crimson animate-bounce ml-0.5" />
+            </div>
+          </div>
+
+          {/* Right Column: Hero Spacer Slot (Desktop only - marks initial target) */}
+          <div className="hidden lg:flex lg:col-span-5 relative items-center justify-center lg:justify-end mt-8 lg:mt-0">
+            <div
+              ref={heroSlotRef}
+              className="w-full max-w-[340px] sm:max-w-[380px] lg:max-w-[420px] aspect-[4/5] invisible pointer-events-none"
+              aria-hidden="true"
+            />
+          </div>
+
+        </div>
+      </section>
 
       {/* ================================================================ */}
       {/* SECTION 2: ABOUT SECTION                                        */}
